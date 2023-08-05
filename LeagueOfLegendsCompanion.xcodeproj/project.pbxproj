@@ -11,6 +11,12 @@
 		1A9AC2582A7CD97A00350C1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AC2572A7CD97A00350C1E /* ContentView.swift */; };
 		1A9AC25A2A7CD97C00350C1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AC2592A7CD97C00350C1E /* Assets.xcassets */; };
 		1A9AC25D2A7CD97C00350C1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AC25C2A7CD97C00350C1E /* Preview Assets.xcassets */; };
+		1A9AC2652A7CD9EC00350C1E /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AC2642A7CD9EC00350C1E /* Champion.swift */; };
+		1AF13C8A2A7E4D7C00C6A4FC /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C892A7E4D7C00C6A4FC /* ListView.swift */; };
+		1AF13C8E2A7E4E0000C6A4FC /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C8D2A7E4E0000C6A4FC /* ListViewModel.swift */; };
+		1AF13C912A7E4ECC00C6A4FC /* ChampionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C902A7E4ECC00C6A4FC /* ChampionDetailView.swift */; };
+		1AF13C932A7E4F5E00C6A4FC /* ChampionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C922A7E4F5E00C6A4FC /* ChampionDetailViewModel.swift */; };
+		1AF13C952A7E510A00C6A4FC /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C942A7E510A00C6A4FC /* NetworkHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		1A9AC2572A7CD97A00350C1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A9AC2592A7CD97C00350C1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A9AC25C2A7CD97C00350C1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A9AC2642A7CD9EC00350C1E /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
+		1AF13C892A7E4D7C00C6A4FC /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		1AF13C8D2A7E4E0000C6A4FC /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		1AF13C902A7E4ECC00C6A4FC /* ChampionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailView.swift; sourceTree = "<group>"; };
+		1AF13C922A7E4F5E00C6A4FC /* ChampionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailViewModel.swift; sourceTree = "<group>"; };
+		1AF13C942A7E510A00C6A4FC /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				1A9AC2542A7CD97A00350C1E /* LeagueOfLegendsCompanion */,
+				1A9AC2662A7D147E00350C1E /* Tests */,
 				1A9AC2532A7CD97A00350C1E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				1A9AC2552A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift */,
+				1AF13C882A7E4D5500C6A4FC /* View */,
+				1AF13C872A7E4D3400C6A4FC /* Network */,
+				1A9AC2632A7CD9D900350C1E /* Model */,
 				1A9AC2572A7CD97A00350C1E /* ContentView.swift */,
 				1A9AC2592A7CD97C00350C1E /* Assets.xcassets */,
 				1A9AC25B2A7CD97C00350C1E /* Preview Content */,
@@ -65,6 +81,56 @@
 				1A9AC25C2A7CD97C00350C1E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A9AC2632A7CD9D900350C1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AC2642A7CD9EC00350C1E /* Champion.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A9AC2662A7D147E00350C1E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		1AF13C872A7E4D3400C6A4FC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13C942A7E510A00C6A4FC /* NetworkHandler.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1AF13C882A7E4D5500C6A4FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13C8F2A7E4EB600C6A4FC /* Champion */,
+				1AF13C8B2A7E4DB500C6A4FC /* List */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1AF13C8B2A7E4DB500C6A4FC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13C892A7E4D7C00C6A4FC /* ListView.swift */,
+				1AF13C8D2A7E4E0000C6A4FC /* ListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		1AF13C8F2A7E4EB600C6A4FC /* Champion */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13C902A7E4ECC00C6A4FC /* ChampionDetailView.swift */,
+				1AF13C922A7E4F5E00C6A4FC /* ChampionDetailViewModel.swift */,
+			);
+			path = Champion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +203,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF13C8E2A7E4E0000C6A4FC /* ListViewModel.swift in Sources */,
+				1AF13C8A2A7E4D7C00C6A4FC /* ListView.swift in Sources */,
 				1A9AC2582A7CD97A00350C1E /* ContentView.swift in Sources */,
 				1A9AC2562A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift in Sources */,
+				1AF13C912A7E4ECC00C6A4FC /* ChampionDetailView.swift in Sources */,
+				1A9AC2652A7CD9EC00350C1E /* Champion.swift in Sources */,
+				1AF13C932A7E4F5E00C6A4FC /* ChampionDetailViewModel.swift in Sources */,
+				1AF13C952A7E510A00C6A4FC /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
