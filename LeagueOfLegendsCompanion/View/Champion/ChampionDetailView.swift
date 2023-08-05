@@ -63,7 +63,7 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Info:")
                         .font(.headline)
-                    Text("Consumtion type: \(viewModel.champion.partype)")
+                    Text("Consumption type: \(viewModel.champion.partype)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {

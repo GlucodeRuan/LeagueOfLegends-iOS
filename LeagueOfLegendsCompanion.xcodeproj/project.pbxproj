@@ -20,6 +20,9 @@
 		1AF13C992A7E5B8900C6A4FC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C982A7E5B8900C6A4FC /* Item.swift */; };
 		1AF13C9C2A7E66FA00C6A4FC /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C9B2A7E66FA00C6A4FC /* ItemDetailView.swift */; };
 		1AF13C9E2A7E672D00C6A4FC /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C9D2A7E672D00C6A4FC /* ItemDetailViewModel.swift */; };
+		1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */; };
+		1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */; };
+		1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		1AF13C982A7E5B8900C6A4FC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1AF13C9B2A7E66FA00C6A4FC /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		1AF13C9D2A7E672D00C6A4FC /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
+		1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreHandler.swift; sourceTree = "<group>"; };
+		1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeToolView.swift; sourceTree = "<group>"; };
+		1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1A9AC2552A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift */,
+				1AF13CA02A7EE75700C6A4FC /* Data */,
 				1AF13C882A7E4D5500C6A4FC /* View */,
 				1AF13C872A7E4D3400C6A4FC /* Network */,
 				1A9AC2632A7CD9D900350C1E /* Model */,
@@ -116,6 +123,7 @@
 		1AF13C882A7E4D5500C6A4FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1AF13CA32A7EE98B00C6A4FC /* PracticeTool */,
 				1AF13C9A2A7E66E100C6A4FC /* Item */,
 				1AF13C972A7E5A6D00C6A4FC /* Root */,
 				1AF13C8F2A7E4EB600C6A4FC /* Champion */,
@@ -145,6 +153,7 @@
 		1AF13C962A7E5A5B00C6A4FC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				1AF13CA62A7F008300C6A4FC /* Extensions */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -164,6 +173,30 @@
 				1AF13C9D2A7E672D00C6A4FC /* ItemDetailViewModel.swift */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		1AF13CA02A7EE75700C6A4FC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1AF13CA32A7EE98B00C6A4FC /* PracticeTool */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */,
+			);
+			path = PracticeTool;
+			sourceTree = "<group>";
+		};
+		1AF13CA62A7F008300C6A4FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,11 +270,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF13C9E2A7E672D00C6A4FC /* ItemDetailViewModel.swift in Sources */,
+				1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */,
 				1AF13C9C2A7E66FA00C6A4FC /* ItemDetailView.swift in Sources */,
 				1AF13C8E2A7E4E0000C6A4FC /* CollectionViewModel.swift in Sources */,
 				1AF13C992A7E5B8900C6A4FC /* Item.swift in Sources */,
 				1AF13C8A2A7E4D7C00C6A4FC /* CollectionView.swift in Sources */,
 				1A9AC2582A7CD97A00350C1E /* ContentView.swift in Sources */,
+				1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */,
+				1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */,
 				1A9AC2562A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift in Sources */,
 				1AF13C912A7E4ECC00C6A4FC /* ChampionDetailView.swift in Sources */,
 				1A9AC2652A7CD9EC00350C1E /* Champion.swift in Sources */,
