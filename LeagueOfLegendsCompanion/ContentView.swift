@@ -9,14 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        ListView()
     }
+    
+    
+    
+    
+}
+
+enum ChampionImageTypes {
+    case splash
+    case loading
+}
+
+enum NetworkError: Error {
+    case invalidURL
+    case invalidResponse
+    case invalidData
 }
 
 struct ContentView_Previews: PreviewProvider {
