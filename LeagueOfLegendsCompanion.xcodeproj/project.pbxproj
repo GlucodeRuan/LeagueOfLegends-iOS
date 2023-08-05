@@ -23,6 +23,8 @@
 		1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */; };
 		1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */; };
 		1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */; };
+		1AF13CAA2A7F081300C6A4FC /* Extension + UTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */; };
+		1AF13CAD2A7F0B2700C6A4FC /* PracticeToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,9 @@
 		1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreHandler.swift; sourceTree = "<group>"; };
 		1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeToolView.swift; sourceTree = "<group>"; };
 		1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
+		1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UTType.swift"; sourceTree = "<group>"; };
+		1AF13CAB2A7F09A100C6A4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeToolViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +81,7 @@
 		1A9AC2542A7CD97A00350C1E /* LeagueOfLegendsCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				1AF13CAB2A7F09A100C6A4FC /* Info.plist */,
 				1A9AC2552A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift */,
 				1AF13CA02A7EE75700C6A4FC /* Data */,
 				1AF13C882A7E4D5500C6A4FC /* View */,
@@ -187,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */,
+				1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */,
 			);
 			path = PracticeTool;
 			sourceTree = "<group>";
@@ -195,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */,
+				1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF13CAA2A7F081300C6A4FC /* Extension + UTType.swift in Sources */,
 				1AF13C9E2A7E672D00C6A4FC /* ItemDetailViewModel.swift in Sources */,
 				1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */,
 				1AF13C9C2A7E66FA00C6A4FC /* ItemDetailView.swift in Sources */,
@@ -279,6 +288,7 @@
 				1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */,
 				1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */,
 				1A9AC2562A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift in Sources */,
+				1AF13CAD2A7F0B2700C6A4FC /* PracticeToolViewModel.swift in Sources */,
 				1AF13C912A7E4ECC00C6A4FC /* ChampionDetailView.swift in Sources */,
 				1A9AC2652A7CD9EC00350C1E /* Champion.swift in Sources */,
 				1AF13C932A7E4F5E00C6A4FC /* ChampionDetailViewModel.swift in Sources */,
@@ -414,6 +424,7 @@
 				DEVELOPMENT_TEAM = 7JZ6LTL76C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LeagueOfLegendsCompanion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,6 +454,7 @@
 				DEVELOPMENT_TEAM = 7JZ6LTL76C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LeagueOfLegendsCompanion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

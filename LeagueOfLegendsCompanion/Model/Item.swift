@@ -4,6 +4,7 @@
 //   let itemData = try? JSONDecoder().decode(ItemData.self, from: jsonData)
 
 import Foundation
+import SwiftUI
 
 // MARK: - ItemData
 struct ItemData: Codable {
@@ -47,7 +48,12 @@ struct Rune: Codable {
 }
 
 // MARK: - Datum
-struct ItemDatum: Codable, Hashable {
+struct ItemDatum: Codable, Hashable, Transferable {
+    
+    static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .shopItem)
+    }
+    
     static func == (lhs: ItemDatum, rhs: ItemDatum) -> Bool {
         lhs.name == rhs.name
     }

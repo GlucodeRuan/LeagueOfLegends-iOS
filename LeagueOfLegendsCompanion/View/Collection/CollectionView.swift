@@ -13,7 +13,7 @@ struct CollectionView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Picker("What is your favorite color?", selection: $viewModel.picker) {
+                Picker("", selection: $viewModel.picker) {
                     ForEach(ListPicker.allCases, id: \.self) { pick in
                         Text(pick.rawValue.capitalized)
                     }

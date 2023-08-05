@@ -25,7 +25,9 @@ final class DataStoreHandler: ObservableObject {
     func fetchChampions() {
         let task = Task {
             do {
-                self.champions = try await networkHandler.fetchChampionList().map({ $0.value }).unique()
+                let data = try await networkHandler.fetchChampionList().map({ $0.value }).unique()
+                let sortedData = data.sorted(by: { $0.name < $1.name })
+                self.champions = sortedData
             } catch {
                 
             }
@@ -36,7 +38,10 @@ final class DataStoreHandler: ObservableObject {
     func fetchItems() {
         let task = Task {
             do {
-                self.items = try await networkHandler.fetchItemList().map({ $0.value }).unique()
+                let data = try await networkHandler.fetchItemList().map({ $0.value }).unique()
+                let sortedData = data.sorted(by: { $0.name < $1.name })
+                let filtededData = sortedData.filter { !$0.name.contains("<") }
+                self.items = filtededData
             } catch {
                 
             }

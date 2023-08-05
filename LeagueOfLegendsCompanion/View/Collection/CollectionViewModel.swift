@@ -20,21 +20,18 @@ final class CollectionViewModel: ObservableObject {
     @Published var picker: ListPicker = .champions
     
     func searchedChampions() -> [ChampDatum] {
-        let sortedChampions = dataStore.champions.sorted(by: { $0.name < $1.name })
         if searchText.isEmpty {
-            return sortedChampions
+            return dataStore.champions
         } else {
-            return sortedChampions.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
+            return dataStore.champions.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
         }
     }
     
     func searchedItems() -> [ItemDatum] {
-        let filteredItems = dataStore.items.filter { !$0.name.contains("<") }
-        let sortedItems = filteredItems.sorted(by: { $0.name < $1.name })
         if searchText.isEmpty {
-            return sortedItems
+            return dataStore.items
         } else {
-            return sortedItems.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
+            return dataStore.items.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
         }
     }
 }
