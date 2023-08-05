@@ -10,7 +10,7 @@ import SwiftUI
 struct ChampionDetailView: View {
     @StateObject var viewModel: ChampionDetailViewModel
     
-    init(champion: Datum) {
+    init(champion: ChampDatum) {
         self._viewModel = StateObject(wrappedValue: ChampionDetailViewModel(champion: champion))
     }
     

@@ -8,16 +8,16 @@
 import Foundation
 
 // MARK: - ChampionData
-struct Champion: Codable {
-    let type: TypeEnum
+struct ChampionData: Codable {
+    let type: ChampTypeEnum
     let format: String
     let version: Version
-    let data: [String: Datum]
+    let data: [String: ChampDatum]
 }
 
-// MARK: - Datum
-struct Datum: Codable, Hashable {
-    static func == (lhs: Datum, rhs: Datum) -> Bool {
+// MARK: - Champ
+struct ChampDatum: Codable, Hashable {
+    static func == (lhs: ChampDatum, rhs: ChampDatum) -> Bool {
         lhs.id == rhs.id
     }
     
@@ -29,8 +29,8 @@ struct Datum: Codable, Hashable {
     let id, key, name, title: String
     let blurb: String
     let info: Info
-    let image: Image
-    let tags: [Tag]
+    let image: ChampionImage
+    let tags: [ChampTag]
     let partype: String
     let stats: [String: Double]
     
@@ -38,18 +38,18 @@ struct Datum: Codable, Hashable {
 }
 
 // MARK: - Image
-struct Image: Codable {
+struct ChampionImage: Codable {
     let full: String
-    let sprite: Sprite
-    let group: TypeEnum
+    let sprite: ChampSprite
+    let group: ChampTypeEnum
     let x, y, w, h: Int
 }
 
-enum TypeEnum: String, Codable {
+enum ChampTypeEnum: String, Codable {
     case champion = "champion"
 }
 
-enum Sprite: String, Codable {
+enum ChampSprite: String, Codable {
     case champion0PNG = "champion0.png"
     case champion1PNG = "champion1.png"
     case champion2PNG = "champion2.png"
@@ -63,7 +63,7 @@ struct Info: Codable {
     let attack, defense, magic, difficulty: Int
 }
 
-enum Tag: String, Codable, CaseIterable {
+enum ChampTag: String, Codable, CaseIterable {
     case assassin = "Assassin"
     case fighter = "Fighter"
     case mage = "Mage"
@@ -76,3 +76,8 @@ enum Version: String, Codable {
     case the1261 = "12.6.1"
 }
 
+// MARK: - ImageTypes
+enum ChampionImageTypes {
+    case splash
+    case loading
+}

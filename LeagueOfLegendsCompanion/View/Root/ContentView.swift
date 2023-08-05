@@ -9,19 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ListView()
-    } 
-}
-
-enum ChampionImageTypes {
-    case splash
-    case loading
-}
-
-enum NetworkError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
+        TabView {
+            CollectionView()
+                .tabItem {
+                    Label("Collection", systemImage: "list.bullet")
+                }
+        }
+        .tint(.primary)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

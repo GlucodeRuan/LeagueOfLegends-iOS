@@ -3,4 +3,86 @@
    uuid = "6906E38A-51A5-4A93-B3DA-5E94A72539EA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81F887DB-BF37-4E86-9FD8-8DB150859256"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Network/NetworkHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "fetchItemList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "164ECA31-8F28-4195-9FE5-B82BFFD1BC03"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Network/NetworkHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "fetchItemList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03A3A280-5EFF-42ED-B627-33B8EBA578B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Network/NetworkHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "fetchItemList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03A3A280-5EFF-42ED-B627-33B8EBA578B5 - 408d9f82d9031bda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for LeagueOfLegendsCompanion.NetworkHandler.fetchItemList() async throws -&gt; Swift.Dictionary&lt;Swift.String, LeagueOfLegendsCompanion.ItemDatum&gt;"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Network/NetworkHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "339">
+               </Location>
+               <Location
+                  uuid = "03A3A280-5EFF-42ED-B627-33B8EBA578B5 - 408d9f82d9031bda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for LeagueOfLegendsCompanion.NetworkHandler.fetchItemList() async throws -&gt; Swift.Dictionary&lt;Swift.String, LeagueOfLegendsCompanion.ItemDatum&gt;"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Network/NetworkHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "579">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
