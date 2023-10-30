@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct PracticeToolView: View {
-    @EnvironmentObject var dataStore: DataStoreHandler
+    @ObservedResults(ChampionModel.self) var champions
+    @ObservedResults(ItemModel.self) var items
+    
     @StateObject var viewModel = PracticeToolViewModel()
     @State var isTargeted = false
     var body: some View {
@@ -30,13 +33,13 @@ struct PracticeToolView: View {
                             .shadow(color: isTargeted ? .primary : .clear, radius: 10)
                         
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(viewModel.userInverntory, id: \.name) { item in
+                            ForEach(viewModel.userInverntory, id: \.id) { item in
                                 itemCard(item: item)
                             }
                         }
                     }
                     .frame(height: 225)
-                    .dropDestination(for: ItemDatum.self) { items, location in
+                    .dropDestination(for: Item.self) { items, location in
                         let totalItems = viewModel.userInverntory + items
                         viewModel.userInverntory = totalItems.unique()
                         return true
@@ -56,7 +59,7 @@ struct PracticeToolView: View {
                         }
                     }
                     .frame(height: 225)
-                    .dropDestination(for: ItemDatum.self) { items, location in
+                    .dropDestination(for: Item.self) { items, location in
                         let totalItems = viewModel.enemyInverntory + items
                         viewModel.enemyInverntory = totalItems.unique()
                         return true
@@ -72,8 +75,8 @@ struct PracticeToolView: View {
                         .fill(Color(.secondarySystemFill))
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(dataStore.items, id: \.name) { item in
-                                itemCard(item: item)
+                            ForEach(items, id: \.id) { item in
+                                itemCard(item: Item(item))
                             }
                         }
                     }
@@ -87,7 +90,7 @@ struct PracticeToolView: View {
     }
     
     @ViewBuilder
-    private func itemCard(item: ItemDatum) -> some View {
+    private func itemCard(item: Item) -> some View {
         VStack {
             AsyncImage(url: viewModel.fetchItemImage(for: item)) { image in
                 image
@@ -105,7 +108,7 @@ struct PracticeToolView: View {
                 Text(item.name)
                     .font(.footnote)
                     .foregroundColor(.secondary)
-                Label(String(describing: item.gold.total), systemImage: "g.circle.fill")
+                Label(String(describing: item.basePrice), systemImage: "g.circle.fill")
                     .font(.footnote)
                     .foregroundColor(.yellow)
                     .padding(.bottom)

@@ -44,14 +44,14 @@ struct CollectionView: View {
             }
             .navigationTitle("Collection")
             .searchable(text: $viewModel.searchText)
-            .task {
-                dataStore.fetchChampions()
-                dataStore.fetchItems()
-            }
-            .refreshable {
-                dataStore.fetchChampions()
-                dataStore.fetchItems()
-            }
+//            .task {
+//                dataStore.fetchChampions()
+//                dataStore.fetchItems()
+//            }
+//            .refreshable {
+//                dataStore.fetchChampions()
+//                dataStore.fetchItems()
+//            }
             .onDisappear() {
                 dataStore.cancelTasks()
             }

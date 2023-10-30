@@ -48,20 +48,7 @@ struct Rune: Codable {
 }
 
 // MARK: - Datum
-struct ItemDatum: Codable, Hashable, Transferable {
-    
-    static var transferRepresentation: some TransferRepresentation {
-        CodableRepresentation(contentType: .shopItem)
-    }
-    
-    static func == (lhs: ItemDatum, rhs: ItemDatum) -> Bool {
-        lhs.name == rhs.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-    
+struct ItemDatum: Codable, Hashable {
     let name, description, colloq, plaintext: String
     let into: [String]?
     let image: ItemImage
@@ -79,6 +66,14 @@ struct ItemDatum: Codable, Hashable, Transferable {
     let requiredChampion: String?
     let requiredAlly: RequiredAlly?
     let specialRecipe: Int?
+    
+    static func == (lhs: ItemDatum, rhs: ItemDatum) -> Bool {
+        lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
 }
 
 // MARK: - Effect

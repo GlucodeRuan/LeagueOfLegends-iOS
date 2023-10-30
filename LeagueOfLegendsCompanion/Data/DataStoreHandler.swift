@@ -6,46 +6,74 @@
 //
 
 import Foundation
+import RealmSwift
 
-@MainActor
 final class DataStoreHandler: ObservableObject {
-    static let shared = DataStoreHandler()
     
-    private let networkHandler: NetworkHandler = NetworkHandler()
-    private var tasks: [Task<Void, Never>] = []
-
-    @Published var champions = [ChampDatum]()
-    @Published var items = [ItemDatum]()
-
-    func cancelTasks() {
-        tasks.forEach({ $0.cancel() })
-        tasks = []
-    }
-    
-    func fetchChampions() {
-        let task = Task {
-            do {
-                let data = try await networkHandler.fetchChampionList().map({ $0.value }).unique()
-                let sortedData = data.sorted(by: { $0.name < $1.name })
-                self.champions = sortedData
-            } catch {
-                
+    private let gateway: Gateway = Gateway()
+    private let realmAdapter: RealmAdapter = RealmAdapter()
+        
+    func checkVersion() {
+        gateway.fetchVersions { versionData, error in
+            if let versionData {
+                let usableVersions = versionData.versions.filter({ !$0.lowercased().contains("lolpatch_")})
+                let sortedVersions = usableVersions.sorted()
+                let latestVersion = sortedVersions.last!
+                if latestVersion > self.version.latestVersion {
+                    
+                    self.updateVersionModel(with: sortedVersions)
+                    
+                    self.gateway.fetchItems(for: latestVersion) { data, error in
+                        guard let usableData = data?.data.map({ $0.value }) else { return }
+                        let sortedData = usableData.sorted(by: { $0.name < $1.name })
+                        let filtededData = sortedData.filter { !$0.name.contains("<") }
+                        self.updateItemModel(with: filtededData)
+                    }
+                    self.gateway.fetchChampions(for: latestVersion) { data, error in
+                        guard let usableData = data?.data.map({ $0.value }) else { return }
+                        let sortedData = usableData.sorted(by: { $0.name < $1.name })
+                        self.updateChampionModel(with: sortedData)
+                    }
+                }
             }
         }
-        tasks.append(task)
     }
     
-    func fetchItems() {
-        let task = Task {
-            do {
-                let data = try await networkHandler.fetchItemList().map({ $0.value }).unique()
-                let sortedData = data.sorted(by: { $0.name < $1.name })
-                let filtededData = sortedData.filter { !$0.name.contains("<") }
-                self.items = filtededData
-            } catch {
-                
-            }
+    private func updateVersionModel(with data: [String]) {
+        let model = VersionModel(data)
+        
+        realmAdapter.create()
+        realmAdapter.update(model)
+    }
+
+    private func updateChampionModel(with data: [ChampDatum]) {
+        for datum in data {
+            let model = ChampionModel(name: datum.name,
+                                          blurb: datum.blurb,
+                                          attack: datum.info.attack,
+                                          defense: datum.info.defense,
+                                          magic: datum.info.magic,
+                                          difficulty: datum.info.difficulty,
+                                          image: datum.image.full,
+                                          title: datum.title)
+            realmAdapter.create()
+            realmAdapter.update(model)
         }
-        tasks.append(task)
+    }
+    
+    private func updateItemModel(with data: [ItemDatum]) {
+        for datum in data {
+            let model = ItemModel(name: datum.name,
+                                  image: datum.image.full,
+                                  basePrice: datum.gold.base,
+                                  sellPrice: datum.gold.sell,
+                                  itemDescription: datum.description,
+                                  colloq: datum.colloq,
+                                  plaintext: datum.plaintext,
+                                  stacks: datum.stacks)
+            
+            realmAdapter.create()
+            realmAdapter.update(model)
+        }
     }
 }

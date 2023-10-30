@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum ListPicker: String, CaseIterable {
     case champions
@@ -14,24 +15,29 @@ enum ListPicker: String, CaseIterable {
 
 @MainActor
 final class CollectionViewModel: ObservableObject {
-    let dataStore = DataStoreHandler.shared
+    @ObservedResults(ChampionModel.self) var champions
+    @ObservedResults(ItemModel.self) var items
     
     @Published var searchText: String = ""
     @Published var picker: ListPicker = .champions
     
-    func searchedChampions() -> [ChampDatum] {
+    func searchedChampions() -> Results<ChampionModel> {
         if searchText.isEmpty {
-            return dataStore.champions
+            return champions
         } else {
-            return dataStore.champions.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
+//            return champions.where({ $0.name.lowercased.contains(searchText.lowercased())
+//            })
         }
+        return champions
     }
     
-    func searchedItems() -> [ItemDatum] {
+    func searchedItems() -> Results<ItemModel> {
         if searchText.isEmpty {
-            return dataStore.items
+            return items
         } else {
-            return dataStore.items.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
+//            return items.where({ $0.name.lowercased.contains(searchText.lowercased())
+//            })
         }
+        return items
     }
 }
