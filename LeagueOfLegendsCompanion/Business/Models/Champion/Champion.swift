@@ -29,6 +29,17 @@ struct Champion: Hashable {
         self.title = model.title
     }
     
+        init(name: String, blurb: String, attack: Int, defense: Int, magic: Int, difficulty: Int, image: String, title: String) {
+            self.name = name
+            self.blurb = blurb
+            self.attack = attack
+            self.defense = defense
+            self.magic = magic
+            self.difficulty = difficulty
+            self.image = image
+            self.title = title
+        }
+    
     static func == (lhs: Champion, rhs: Champion) -> Bool {
         lhs.id == rhs.id
     }

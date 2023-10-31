@@ -31,8 +31,8 @@ class NetworkHandler: ObservableObject {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let result = try decoder.decode(VersionData.self, from: data)
-            return result
+            let result = try decoder.decode([String].self, from: data)
+            return VersionData(versions: result)
         } catch {
             throw NetworkError.invalidData
         }
@@ -62,7 +62,7 @@ class NetworkHandler: ObservableObject {
     }
     
     func fetchItemList(for version: String) async throws -> ItemData{
-        let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(version)data/en_US/item.json"
+        let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/item.json"
         
         guard let url = URL(string: endpoint) else {
             throw NetworkError.invalidURL

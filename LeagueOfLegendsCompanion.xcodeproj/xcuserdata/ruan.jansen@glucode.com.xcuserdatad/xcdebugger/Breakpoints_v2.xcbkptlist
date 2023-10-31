@@ -3,4 +3,277 @@
    uuid = "6906E38A-51A5-4A93-B3DA-5E94A72539EA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A013F993-29F9-4E12-8DD8-3D2833792ABD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3507509B-9409-44A7-A386-F079EF8F41AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "checkVersion()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3507509B-9409-44A7-A386-F079EF8F41AD - 557ae07489bc1ebd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LeagueOfLegendsCompanion.VersionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LeagueOfLegendsCompanion.DataStoreHandler.checkVersion() -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "3507509B-9409-44A7-A386-F079EF8F41AD - 557ae07489bc1ebd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LeagueOfLegendsCompanion.VersionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LeagueOfLegendsCompanion.DataStoreHandler.checkVersion() -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A20D8D27-5872-40BD-8BE4-1EEB57551321"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "fetchChampions(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A20D8D27-5872-40BD-8BE4-1EEB57551321 - 5c4cccbb2a6d46e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LeagueOfLegendsCompanion.ItemData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LeagueOfLegendsCompanion.DataStoreHandler.fetchChampions(for: Swift.String) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "169">
+               </Location>
+               <Location
+                  uuid = "A20D8D27-5872-40BD-8BE4-1EEB57551321 - 4c8ab91d4f0653b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((key: Swift.String, value: LeagueOfLegendsCompanion.ItemDatum)) -&gt; LeagueOfLegendsCompanion.ItemDatum in closure #1 (Swift.Optional&lt;LeagueOfLegendsCompanion.ItemData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LeagueOfLegendsCompanion.DataStoreHandler.fetchChampions(for: Swift.String) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1932">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82C94C33-ECF4-495A-8033-4633BC005740"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "fetchItems(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82C94C33-ECF4-495A-8033-4633BC005740 - 93d7184dbbd349f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LeagueOfLegendsCompanion.ChampionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LeagueOfLegendsCompanion.DataStoreHandler.fetchItems(for: Swift.String) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "151">
+               </Location>
+               <Location
+                  uuid = "82C94C33-ECF4-495A-8033-4633BC005740 - 354c47a36b8c552d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((key: Swift.String, value: LeagueOfLegendsCompanion.ChampDatum)) -&gt; LeagueOfLegendsCompanion.ChampDatum in closure #1 (Swift.Optional&lt;LeagueOfLegendsCompanion.ChampionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LeagueOfLegendsCompanion.DataStoreHandler.fetchItems(for: Swift.String) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "675">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59C8F401-68C2-4318-B027-146E0F98C629"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "updateChampionModel(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDF20F3A-EA9A-4CF1-BD44-CC4EC80706B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Data/DataStoreHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "updateItemModel(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BF15AA3-B54D-4BC3-8B4C-207CA3D947A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Business/Data/Gateway.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "fetchChampions(for:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0BF15AA3-B54D-4BC3-8B4C-207CA3D947A1 - 645c47503a09d994"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in LeagueOfLegendsCompanion.Gateway.fetchChampions(for: Swift.String, completion: (Swift.Optional&lt;LeagueOfLegendsCompanion.ChampionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Business/Data/Gateway.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "173">
+               </Location>
+               <Location
+                  uuid = "0BF15AA3-B54D-4BC3-8B4C-207CA3D947A1 - 645c47503a09d994"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in LeagueOfLegendsCompanion.Gateway.fetchChampions(for: Swift.String, completion: (Swift.Optional&lt;LeagueOfLegendsCompanion.ChampionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Business/Data/Gateway.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "265">
+               </Location>
+               <Location
+                  uuid = "0BF15AA3-B54D-4BC3-8B4C-207CA3D947A1 - 645c47503a09d994"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in LeagueOfLegendsCompanion.Gateway.fetchChampions(for: Swift.String, completion: (Swift.Optional&lt;LeagueOfLegendsCompanion.ChampionData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LeagueOfLegendsCompanion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruan.jansen@glucode.com/Documents/GitHub/LeagueOfLegendsCompanion/LeagueOfLegendsCompanion/Business/Data/Gateway.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24093A5A-F261-4D25-B363-E5A87DCE158B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeagueOfLegendsCompanion/Network/NetworkHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "fetchItemList(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

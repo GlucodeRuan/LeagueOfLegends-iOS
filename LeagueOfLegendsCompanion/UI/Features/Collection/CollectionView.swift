@@ -53,7 +53,7 @@ struct CollectionView: View {
 //                dataStore.fetchItems()
 //            }
             .onDisappear() {
-                dataStore.cancelTasks()
+//                dataStore.cancelTasks()
             }
         }
     }

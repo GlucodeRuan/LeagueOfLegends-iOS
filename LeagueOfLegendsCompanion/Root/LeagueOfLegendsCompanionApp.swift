@@ -14,8 +14,8 @@ struct LeagueOfLegendsCompanionApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .task {
-                    dataStore.checkVersion()
+                .onAppear() {
+                    dump(ChampionModel().read())
                 }
         }
     }

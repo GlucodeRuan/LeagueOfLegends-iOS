@@ -29,6 +29,17 @@ struct Item: Codable, Hashable, Transferable {
         self.plaintext = model.plaintext
         self.stacks = model.stacks
     }
+    
+        init(name: String, image: String, basePrice: Int, sellPrice: Int, itemDescription: String, colloq: String, plaintext: String, stacks: Int?) {
+            self.name = name
+            self.image = image
+            self.basePrice = basePrice
+            self.sellPrice = sellPrice
+            self.itemDescription = itemDescription
+            self.colloq = colloq
+            self.plaintext = plaintext
+            self.stacks = stacks
+        }
 
     static func == (lhs: Item, rhs: Item) -> Bool {
         lhs.id == rhs.id
