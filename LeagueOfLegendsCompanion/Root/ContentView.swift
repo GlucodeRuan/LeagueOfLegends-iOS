@@ -14,10 +14,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Collection", systemImage: "backpack")
                 }
-            PracticeToolView()
-                .tabItem {
-                    Label("Practice Tool", systemImage: "scope")
-                }
+//            PracticeToolView()
+//                .tabItem {
+//                    Label("Practice Tool", systemImage: "scope")
+//                }
         }
         .tint(.primary)
     }
