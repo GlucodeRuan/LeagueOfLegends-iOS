@@ -10,16 +10,19 @@ import SwiftUI
 struct ChampionDetailView: View {
     @StateObject var viewModel: ChampionDetailViewModel
     
-    init(champion: ChampDatum) {
+    init(champion: Champion) {
         self._viewModel = StateObject(wrappedValue: ChampionDetailViewModel(champion: champion))
     }
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(viewModel.champion.name)
                         .font(.title)
+                    Text(viewModel.champion.alias.capitalized)
+                        .foregroundStyle(.secondary)
+                        .font(.subheadline)
                 }
                 .padding(.bottom)
                 
@@ -36,23 +39,23 @@ struct ChampionDetailView: View {
                 .padding(.bottom)
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Class:")
+                    Text("Class")
                         .font(.headline)
-                    ForEach(viewModel.champion.tags, id:\.rawValue) { tag in
-                        Text("• \(tag.rawValue)")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        
-                    }
+//                    ForEach(viewModel.champion.tags, id:\.rawValue) { tag in
+//                        Text("• \(tag.rawValue)")
+//                            .font(.footnote)
+//                            .foregroundColor(.secondary)
+//                        
+//                    }
                 }
                 .padding(.bottom)
                 
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Blurb:")
+                    Text("Origin")
                         .font(.headline)
-                    Text(viewModel.champion.blurb)
+                    Text(viewModel.champion.origin)
                         .font(.callout)
                         .foregroundColor(.secondary)
                 }
@@ -61,16 +64,16 @@ struct ChampionDetailView: View {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Info:")
+                    Text("Info")
                         .font(.headline)
-                    Text("Consumption type: \(viewModel.champion.partype)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+//                    Text("Consumption type: \(viewModel.champion.partype)")
+//                        .font(.subheadline)
+//                        .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("Attack: \(viewModel.champion.info.attack)")
-                        Text("Defense: \(viewModel.champion.info.defense)")
-                        Text("Magic: \(viewModel.champion.info.magic)")
-                        Text("Difficulty: \(viewModel.champion.info.difficulty)")
+                        Text("Attack: \(viewModel.champion.attack)")
+                        Text("Defense: \(viewModel.champion.defense)")
+                        Text("Magic: \(viewModel.champion.magic)")
+                        Text("Difficulty: \(viewModel.champion.difficulty)")
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -80,13 +83,13 @@ struct ChampionDetailView: View {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Stats:")
+                    Text("Stats")
                         .font(.headline)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        ForEach(Array(viewModel.champion.stats), id: \.key) { key, value in
-                            Text("\(key): \(String(format: "%g", value))")
-                        }
+//                        ForEach(Array(viewModel.champion.stats), id: \.key) { key, value in
+//                            Text("\(key): \(String(format: "%g", value))")
+//                        }
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)

@@ -13,14 +13,14 @@ enum PracticeToolPlayerPicker: String, CaseIterable {
 }
 
 class PracticeToolViewModel: ObservableObject {
-    @Published var userInverntory: [ItemDatum] = [] 
-    @Published var enemyInverntory: [ItemDatum] = []
+    @Published var userInverntory: [Item] = []
+    @Published var enemyInverntory: [Item] = []
     
     @Published var playerPicker: PracticeToolPlayerPicker = .user
     
-    func fetchItemImage(for item: ItemDatum) -> URL? {
+    func fetchItemImage(for item: Item) -> URL? {
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/item/"
-        let image = "\(item.image.full)"
+        let image = "\(item.image)"
         let result = endpoint + image
         let url = URL(string: result)
         return url

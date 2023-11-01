@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
-    @EnvironmentObject var dataStore: DataStoreHandler
+    let dataStore = DataStoreHandler()
     @StateObject var viewModel: CollectionViewModel = CollectionViewModel()
     var body: some View {
         NavigationStack {
@@ -28,7 +28,7 @@ struct CollectionView: View {
                             Text(champion.name)
                         }
                     }
-                    .navigationDestination(for: ChampDatum.self) { champion in
+                    .navigationDestination(for: Champion.self) { champion in
                         ChampionDetailView(champion: champion)
                     }
                 case .items:
@@ -37,23 +37,15 @@ struct CollectionView: View {
                             Text(item.name)
                         }
                     }
-                    .navigationDestination(for: ItemDatum.self) { item in
+                    .navigationDestination(for: Item.self) { item in
                         ItemDetailView(item: item)
                     }
                 }
             }
             .navigationTitle("Collection")
             .searchable(text: $viewModel.searchText)
-            .task {
-                dataStore.fetchChampions()
-                dataStore.fetchItems()
-            }
             .refreshable {
-                dataStore.fetchChampions()
-                dataStore.fetchItems()
-            }
-            .onDisappear() {
-                dataStore.cancelTasks()
+                dataStore.checkVersion()
             }
         }
     }

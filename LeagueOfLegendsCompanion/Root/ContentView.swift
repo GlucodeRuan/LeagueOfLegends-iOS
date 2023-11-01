@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var dataStore = DataStoreHandler.shared
-
     var body: some View {
         TabView {
             CollectionView()
-                .environmentObject(dataStore)
                 .tabItem {
                     Label("Collection", systemImage: "backpack")
                 }
-            PracticeToolView()
-                .environmentObject(dataStore)
-                .tabItem {
-                    Label("Practice Tool", systemImage: "scope")
-                }
+//            PracticeToolView()
+//                .tabItem {
+//                    Label("Practice Tool", systemImage: "scope")
+//                }
         }
         .tint(.primary)
     }

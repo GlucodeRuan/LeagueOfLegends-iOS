@@ -1,5 +1,5 @@
 //
-//  Champion.swift
+//  ChampionData.swift
 //  LeagueOfLegendsCompanion
 //
 //  Created by Ruan Jansen on 2023/08/04.
@@ -33,8 +33,6 @@ struct ChampDatum: Codable, Hashable {
     let tags: [ChampTag]
     let partype: String
     let stats: [String: Double]
-    
-    
 }
 
 // MARK: - Image
@@ -74,6 +72,7 @@ enum ChampTag: String, Codable, CaseIterable {
 
 enum Version: String, Codable {
     case the1261 = "12.6.1"
+    case the13211 = "13.21.1"
 }
 
 // MARK: - ImageTypes
