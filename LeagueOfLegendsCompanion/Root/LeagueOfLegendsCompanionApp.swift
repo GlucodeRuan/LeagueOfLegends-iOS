@@ -8,15 +8,11 @@
 import SwiftUI
 
 @main
-struct LeagueOfLegendsCompanionApp: App {
-    let dataStore = DataStoreHandler()
-    
+struct LeagueOfLegendsCompanionApp: App {    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear {
-                    dataStore.checkVersion()
-                }
+                
         }
     }
 }

@@ -44,9 +44,6 @@ struct CollectionView: View {
             }
             .navigationTitle("Collection")
             .searchable(text: $viewModel.searchText)
-            .refreshable {
-                dataStore.checkVersion()
-            }
         }
     }
 }
