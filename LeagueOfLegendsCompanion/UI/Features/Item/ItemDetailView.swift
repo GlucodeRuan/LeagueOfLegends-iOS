@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ItemDetailView: View {
     @StateObject var viewModel: ItemDetailViewModel
-    
+    @State var loading: Bool = true
+
     init(item: Item) {
         self._viewModel = StateObject(wrappedValue: ItemDetailViewModel(item: item))
     }
@@ -18,19 +20,25 @@ struct ItemDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
-                    AsyncImage(url: viewModel.fetchItemImage()) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .frame(width: 50 ,height: 50)
-                    } placeholder: {
-                        ProgressView()
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .clipped()
-                    }
-                    .padding(.trailing)
                     
+                    KFImage(viewModel.fetchItemImage())
+                        .resizable()
+                        .onProgress({ receivedSize, totalSize in
+                            loading = true
+                        })
+                        .onSuccess({ result in
+                            loading = false
+                        })
+                        .onFailureImage(KFCrossPlatformImage(systemName: "wifi.slash"))
+                        .onFailure({ error in
+                            loading = false
+                            print(error)
+                        })
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .frame(width: 50 ,height: 50)
+                        .padding(.trailing)
+
                     Text(viewModel.item.name)
                         .font(.title)
                     
@@ -69,5 +77,6 @@ struct ItemDetailView: View {
             }
             .padding()
         }
+        .redacted(reason: loading ? .placeholder : [])
     }
 }
