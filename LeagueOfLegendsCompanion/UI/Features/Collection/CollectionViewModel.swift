@@ -21,23 +21,33 @@ final class CollectionViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var picker: ListPicker = .champions
     
-    func searchedChampions() -> Results<ChampionModel> {
+    func searchedChampions() -> [Champion] {
+        var champions: [Champion] = []
+        
+        for champion in self.champions {
+            champions.append(Champion(champion))
+        }
+        
         if searchText.isEmpty {
             return champions
         } else {
-//            return champions.where({ $0.name.lowercased.contains(searchText.lowercased())
-//            })
+            return champions.filter({ $0.name.lowercased().contains(searchText.lowercased())
+            })
         }
-        return champions
     }
     
-    func searchedItems() -> Results<ItemModel> {
+    func searchedItems() -> [Item] {
+        var items: [Item] = []
+        
+        for item in self.items {
+            items.append(Item(item))
+        }
+        
         if searchText.isEmpty {
             return items
         } else {
-//            return items.where({ $0.name.lowercased.contains(searchText.lowercased())
-//            })
+            return items.filter({ $0.name.lowercased().contains(searchText.lowercased())
+            })
         }
-        return items
     }
 }

@@ -9,35 +9,42 @@ import Foundation
 
 struct Champion: Hashable {
     let id = UUID()
+    var image: String
     var name: String
-    var blurb: String
+    var alias: String
+    var origin: String
     var attack: Int
     var defense: Int
     var magic: Int
     var difficulty: Int
-    var image: String
-    var title: String
     
     init(_ model: ChampionModel) {
         self.name = model.name
-        self.blurb = model.blurb
+        self.origin = model.origin
         self.attack = model.attack
         self.defense = model.defense
         self.magic = model.magic
         self.difficulty = model.difficulty
         self.image = model.image
-        self.title = model.title
+        self.alias = model.alias
     }
     
-        init(name: String, blurb: String, attack: Int, defense: Int, magic: Int, difficulty: Int, image: String, title: String) {
+    init(image: String,
+        name: String,
+        title: String,
+        blurb: String,
+        attack: Int,
+        defense: Int,
+        magic: Int,
+        difficulty: Int) {
             self.name = name
-            self.blurb = blurb
+            self.origin = blurb
             self.attack = attack
             self.defense = defense
             self.magic = magic
             self.difficulty = difficulty
             self.image = image
-            self.title = title
+            self.alias = title
         }
     
     static func == (lhs: Champion, rhs: Champion) -> Bool {

@@ -10,7 +10,7 @@ import SwiftUI
 struct ItemDetailView: View {
     @StateObject var viewModel: ItemDetailViewModel
     
-    init(item: ItemDatum) {
+    init(item: Item) {
         self._viewModel = StateObject(wrappedValue: ItemDetailViewModel(item: item))
     }
     
@@ -39,13 +39,13 @@ struct ItemDetailView: View {
                 .padding(.bottom)
                 
                 
-                Label(String(describing: viewModel.item.gold.total), systemImage: "g.circle.fill")
+                Label(String(describing: viewModel.item.basePrice), systemImage: "g.circle.fill")
                     .foregroundColor(.yellow)
                     .padding(.bottom)
                 
                 Divider()
                 
-                Text("Info:")
+                Text("Info")
                     .font(.headline)
                     .padding(.bottom)
 
@@ -57,9 +57,9 @@ struct ItemDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        ForEach(Array(viewModel.item.stats), id: \.key) { key, value in
-                            Text("\(key): \(String(format: "%g", value))")
-                        }
+//                        ForEach(Array(viewModel.item.stats), id: \.key) { key, value in
+//                            Text("\(key): \(String(format: "%g", value))")
+//                        }
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)

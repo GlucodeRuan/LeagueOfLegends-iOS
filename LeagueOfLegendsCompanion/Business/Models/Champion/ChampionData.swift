@@ -72,7 +72,7 @@ enum ChampTag: String, Codable, CaseIterable {
 
 enum Version: String, Codable {
     case the1261 = "12.6.1"
-//    case the13211 = "13.21.1"
+    case the13211 = "13.21.1"
 }
 
 // MARK: - ImageTypes

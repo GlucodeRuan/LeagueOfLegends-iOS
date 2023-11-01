@@ -28,7 +28,7 @@ struct CollectionView: View {
                             Text(champion.name)
                         }
                     }
-                    .navigationDestination(for: ChampDatum.self) { champion in
+                    .navigationDestination(for: Champion.self) { champion in
                         ChampionDetailView(champion: champion)
                     }
                 case .items:
@@ -37,7 +37,7 @@ struct CollectionView: View {
                             Text(item.name)
                         }
                     }
-                    .navigationDestination(for: ItemDatum.self) { item in
+                    .navigationDestination(for: Item.self) { item in
                         ItemDetailView(item: item)
                     }
                 }

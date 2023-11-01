@@ -8,15 +8,15 @@
 import Foundation
 
 class ItemDetailViewModel: ObservableObject {
-    @Published var item: ItemDatum
+    @Published var item: Item
 
-    init(item: ItemDatum) {
+    init(item: Item) {
         self.item = item
     }
     
     func fetchItemImage() -> URL? {
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/item/"
-        let image = "\(item.image.full)"
+        let image = "\(item.image)"
         let result = endpoint + image
         let url = URL(string: result)
         return url

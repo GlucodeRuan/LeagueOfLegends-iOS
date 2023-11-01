@@ -21,6 +21,7 @@ protocol RealmAdaptable {
 //    func read() -> Results<Self>?
     func update(_ model: Object)
     func delete(_ model: Object)
+    func deleteAll()
 }
 
 extension RealmAdaptable where Self: Object {
@@ -66,6 +67,16 @@ extension RealmAdaptable where Self: Object {
             let realm = try Realm()
             try realm.write {
                 realm.delete(model)
+            }
+        } catch {
+        }
+    }
+    
+    func deleteAll() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
             }
         } catch {
         }

@@ -27,15 +27,13 @@ final class DataStoreHandler: ObservableObject {
                         self.updateVersionModel(with: usableVersions)
                         self.fetchItems(for: latestVersion)
                         self.fetchChampions(for: latestVersion)
-                    } else {
-                        #warning("TESTING")
-                        self.fetchItems(for: latestVersion)
-                        self.fetchChampions(for: latestVersion)
                     }
                 } else {
                     var firstVersionList: [String] = []
                     firstVersionList.append(latestVersion)
                     self.updateVersionModel(with: firstVersionList)
+                    self.fetchItems(for: latestVersion)
+                    self.fetchChampions(for: latestVersion)
                 }
             }
         }
@@ -65,14 +63,12 @@ final class DataStoreHandler: ObservableObject {
 
     private func updateChampionModel(with data: [ChampDatum]) {
         for datum in data {
-            let champion = Champion(name: datum.name,
-                                         blurb: datum.blurb,
-                                         attack: datum.info.attack,
-                                         defense: datum.info.defense,
-                                         magic: datum.info.magic,
-                                         difficulty: datum.info.difficulty,
-                                         image: datum.image.full,
-                                         title: datum.title)
+            let champion = Champion(image: datum.image.full, name: datum.name,
+                                    title: datum.title, blurb: datum.blurb,
+                                    attack: datum.info.attack,
+                                    defense: datum.info.defense,
+                                    magic: datum.info.magic,
+                                    difficulty: datum.info.difficulty)
             
             let model = ChampionModel(champion)
             ChampionModel().update(model)

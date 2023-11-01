@@ -10,8 +10,8 @@ import SwiftUI
 
 struct Item: Codable, Hashable, Transferable {
     var id = UUID()
-    var name: String
     var image: String
+    var name: String
     var basePrice: Int
     var sellPrice: Int
     var itemDescription: String
@@ -30,17 +30,24 @@ struct Item: Codable, Hashable, Transferable {
         self.stacks = model.stacks
     }
     
-        init(name: String, image: String, basePrice: Int, sellPrice: Int, itemDescription: String, colloq: String, plaintext: String, stacks: Int?) {
-            self.name = name
-            self.image = image
-            self.basePrice = basePrice
-            self.sellPrice = sellPrice
-            self.itemDescription = itemDescription
-            self.colloq = colloq
-            self.plaintext = plaintext
-            self.stacks = stacks
-        }
-
+    init(name: String, 
+         image: String,
+         basePrice: Int,
+         sellPrice: Int,
+         itemDescription: String,
+         colloq: String,
+         plaintext: String,
+         stacks: Int?) {
+        self.name = name
+        self.image = image
+        self.basePrice = basePrice
+        self.sellPrice = sellPrice
+        self.itemDescription = itemDescription
+        self.colloq = colloq
+        self.plaintext = plaintext
+        self.stacks = stacks
+    }
+    
     static func == (lhs: Item, rhs: Item) -> Bool {
         lhs.id == rhs.id
     }
