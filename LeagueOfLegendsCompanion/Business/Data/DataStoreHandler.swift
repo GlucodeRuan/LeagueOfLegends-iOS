@@ -14,7 +14,6 @@ final class DataStoreHandler: ObservableObject {
     
     init() {
         self.gateway = Gateway()
-        self.checkVersion()
     }
         
     func checkVersion() {
@@ -41,7 +40,7 @@ final class DataStoreHandler: ObservableObject {
     
     private func fetchItems(for version: String) {
         self.gateway.fetchItems(for: version) { data, error in
-            guard let usableData = data?.data.map({ $0.value }) else { return }
+            guard let usableData = data?.data.map({ $0.value }).unique() else { return }
             let sortedData = usableData.sorted(by: { $0.name < $1.name })
             let filtededData = sortedData.filter { !$0.name.contains("<") }
             self.updateItemModel(with: filtededData)
@@ -50,7 +49,7 @@ final class DataStoreHandler: ObservableObject {
     
     private func fetchChampions(for version: String) {
         self.gateway.fetchChampions(for: version) { data, error in
-            guard let usableData = data?.data.map({ $0.value }) else { return }
+            guard let usableData = data?.data.map({ $0.value }).unique() else { return }
             let sortedData = usableData.sorted(by: { $0.name < $1.name })
             self.updateChampionModel(with: sortedData)
         }

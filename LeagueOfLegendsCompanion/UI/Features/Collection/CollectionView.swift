@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
-    @EnvironmentObject var dataStore: DataStoreHandler
+    let dataStore = DataStoreHandler()
     @StateObject var viewModel: CollectionViewModel = CollectionViewModel()
     var body: some View {
         NavigationStack {
@@ -44,16 +44,8 @@ struct CollectionView: View {
             }
             .navigationTitle("Collection")
             .searchable(text: $viewModel.searchText)
-//            .task {
-//                dataStore.fetchChampions()
-//                dataStore.fetchItems()
-//            }
-//            .refreshable {
-//                dataStore.fetchChampions()
-//                dataStore.fetchItems()
-//            }
-            .onDisappear() {
-//                dataStore.cancelTasks()
+            .refreshable {
+                dataStore.checkVersion()
             }
         }
     }

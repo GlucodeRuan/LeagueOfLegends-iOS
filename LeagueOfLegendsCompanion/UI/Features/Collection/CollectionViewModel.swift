@@ -17,37 +17,27 @@ enum ListPicker: String, CaseIterable {
 final class CollectionViewModel: ObservableObject {
     @ObservedResults(ChampionModel.self) var champions
     @ObservedResults(ItemModel.self) var items
-    
-    @Published var searchText: String = ""
+        
     @Published var picker: ListPicker = .champions
+    @Published var searchText: String = ""
     
     func searchedChampions() -> [Champion] {
-        var champions: [Champion] = []
-        
-        for champion in self.champions {
-            champions.append(Champion(champion))
-        }
+        var championList: [Champion] = champions.map({ Champion($0) })
         
         if searchText.isEmpty {
-            return champions
+            return championList
         } else {
-            return champions.filter({ $0.name.lowercased().contains(searchText.lowercased())
-            })
+            return championList.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
         }
     }
     
     func searchedItems() -> [Item] {
-        var items: [Item] = []
-        
-        for item in self.items {
-            items.append(Item(item))
-        }
+        var itemList: [Item] = items.map({ Item($0) })
         
         if searchText.isEmpty {
-            return items
+            return itemList
         } else {
-            return items.filter({ $0.name.lowercased().contains(searchText.lowercased())
-            })
+            return itemList.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
         }
     }
 }
