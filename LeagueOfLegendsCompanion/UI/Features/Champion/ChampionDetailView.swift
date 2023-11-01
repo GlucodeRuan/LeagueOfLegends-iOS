@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ChampionDetailView: View {
     @StateObject var viewModel: ChampionDetailViewModel
+    @State var loading: Bool = true
     
     init(champion: Champion) {
         self._viewModel = StateObject(wrappedValue: ChampionDetailViewModel(champion: champion))
@@ -25,19 +27,24 @@ struct ChampionDetailView: View {
                         .font(.subheadline)
                 }
                 .padding(.bottom)
-                
-                AsyncImage(url: viewModel.fetchChampImage(for: .splash)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                } placeholder: {
-                    ProgressView()
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .clipped()
-                }
-                .padding(.bottom)
-                
+
+                KFImage(viewModel.fetchChampImage(for: .splash))
+                    .resizable()
+                    .onProgress({ receivedSize, totalSize in
+                        loading = true
+                    })
+                    .onSuccess({ result in
+                        loading = false
+                    })
+                    .onFailureImage(KFCrossPlatformImage(systemName: "wifi.slash"))
+                    .onFailure({ error in
+                        loading = false
+                        print(error)
+                    })
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.bottom)
+
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Class")
                         .font(.headline)
@@ -100,5 +107,6 @@ struct ChampionDetailView: View {
             }
             .padding()
         }
+        .redacted(reason: loading ? .placeholder : [])
     }
 }

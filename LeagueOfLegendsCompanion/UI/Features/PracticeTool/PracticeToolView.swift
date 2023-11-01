@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Kingfisher
 
 struct PracticeToolView: View {
     @ObservedResults(ChampionModel.self) var champions
@@ -14,6 +15,8 @@ struct PracticeToolView: View {
     
     @StateObject var viewModel = PracticeToolViewModel()
     @State var isTargeted = false
+    @State var loading: Bool = true
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
@@ -34,7 +37,7 @@ struct PracticeToolView: View {
                         
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
                             ForEach(viewModel.userInverntory, id: \.id) { item in
-                                itemCard(item: item)
+                                itemCard(item: item, showingText: false)
                             }
                         }
                     }
@@ -54,7 +57,7 @@ struct PracticeToolView: View {
                         
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
                             ForEach(viewModel.enemyInverntory, id: \.name) { item in
-                                itemCard(item: item)
+                                itemCard(item: item, showingText: false)
                             }
                         }
                     }
@@ -67,8 +70,6 @@ struct PracticeToolView: View {
                         self.isTargeted = isTargeted
                     }
                 }
-                
-                
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -90,28 +91,37 @@ struct PracticeToolView: View {
     }
     
     @ViewBuilder
-    private func itemCard(item: Item) -> some View {
+    private func itemCard(item: Item, showingText: Bool? = true) -> some View {
         VStack {
-            AsyncImage(url: viewModel.fetchItemImage(for: item)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .frame(width: 50 ,height: 50)
-            } placeholder: {
-                ProgressView()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .clipped()
-            }
-            .draggable(item)
-            VStack(alignment: .leading) {
-                Text(item.name)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                Label(String(describing: item.basePrice), systemImage: "g.circle.fill")
-                    .font(.footnote)
-                    .foregroundColor(.yellow)
-                    .padding(.bottom)
+            KFImage(viewModel.fetchItemImage(for: item))
+                .resizable()
+                .onProgress({ receivedSize, totalSize in
+                    loading = true
+                })
+                .onSuccess({ result in
+                    loading = false
+                })
+                .onFailureImage(KFCrossPlatformImage(systemName: "wifi.slash"))
+                .onFailure({ error in
+                    loading = false
+                    print(error)
+                })
+                .aspectRatio(contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 50 ,height: 50)
+                .draggable(item)
+            
+            if let showingText,
+               showingText == true {
+                VStack(alignment: .leading) {
+                    Text(item.name)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                    Label(String(describing: item.basePrice), systemImage: "g.circle.fill")
+                        .font(.footnote)
+                        .foregroundColor(.yellow)
+                        .padding(.bottom)
+                }
             }
         }
         .frame(width: 100 ,height: 100)
