@@ -18,16 +18,16 @@ enum AlertMessages: String {
 
 final class DataStoreHandler: ObservableObject {
     
-//    @Published var alertMessage: String?
+    //    @Published var alertMessage: String?
     
     private let gateway: Gateway
     
     init() {
         self.gateway = Gateway()
     }
-
+    
     func checkVersion(completion: @escaping (String?) -> Void) {
-        gateway.fetchVersions { versionData, error in
+        gateway.fetchVersions { versionData, networkError, dataError in
             if let versionData {
                 let usableVersions = versionData.versions.filter({ !$0.lowercased().contains("lolpatch_")})
                 let latestVersion = usableVersions.first!
@@ -35,8 +35,12 @@ final class DataStoreHandler: ObservableObject {
                     if latestVersion != persistedVersion.latestVersion {
                         completion(AlertMessages.updating.rawValue)
                         self.updateVersionModel(with: usableVersions)
-                        self.fetchItems(for: latestVersion)
-                        self.fetchChampions(for: latestVersion)
+                        self.fetchItems(for: latestVersion) { error in
+                            completion(error)
+                        }
+                        self.fetchChampions(for: latestVersion) { error in
+                            completion(error)
+                        }
                     } else {
                         completion(AlertMessages.updated.rawValue)
                     }
@@ -45,29 +49,46 @@ final class DataStoreHandler: ObservableObject {
                     var firstVersionList: [String] = []
                     firstVersionList.append(latestVersion)
                     self.updateVersionModel(with: firstVersionList)
-                    self.fetchItems(for: latestVersion)
-                    self.fetchChampions(for: latestVersion)
+                    self.fetchItems(for: latestVersion) { error in
+                        completion(error)
+                    }
+                    self.fetchChampions(for: latestVersion) { error in
+                        completion(error)
+                    }
                 }
-            } else {
-                completion(AlertMessages.disconnected.rawValue)
+            } else if let networkError {
+                completion(networkError.rawValue)
+            } else if let dataError {
+                completion(dataError.rawValue)
             }
         }
     }
     
-    private func fetchItems(for version: String) {
-        self.gateway.fetchItems(for: version) { data, error in
-            guard let usableData = data?.data.map({ $0.value }).unique() else { return }
-            let sortedData = usableData.sorted(by: { $0.name < $1.name })
-            let filtededData = sortedData.filter { !$0.name.contains("<") }
-            self.updateItemModel(with: filtededData)
+    private func fetchItems(for version: String, completion: @escaping (String?) -> Void) {
+        self.gateway.fetchItems(for: version) { data, networkError, dataError in
+            if let usableData = data?.data.map({ $0.value }).unique() {
+                let sortedData = usableData.sorted(by: { $0.name < $1.name })
+                let filtededData = sortedData.filter { !$0.name.contains("<") }
+                self.updateItemModel(with: filtededData)
+            } else if let networkError {
+                completion(networkError.rawValue)
+            } else if let dataError {
+                completion(dataError.rawValue)
+            }
         }
     }
     
-    private func fetchChampions(for version: String) {
-        self.gateway.fetchChampions(for: version) { data, error in
-            guard let usableData = data?.data.map({ $0.value }).unique() else { return }
-            let sortedData = usableData.sorted(by: { $0.name < $1.name })
-            self.updateChampionModel(with: sortedData)
+    private func fetchChampions(for version: String, completion: @escaping (String?) -> Void) {
+        self.gateway.fetchChampions(for: version) { data, networkError, dataError in
+            if let usableData = data?.data.map({ $0.value }).unique() {
+                let sortedData = usableData.sorted(by: { $0.name < $1.name })
+                self.updateChampionModel(with: sortedData)
+            } else if let networkError {
+                completion(networkError.rawValue)
+            } else if let dataError {
+                completion(dataError.rawValue)
+                
+            }
         }
     }
     
