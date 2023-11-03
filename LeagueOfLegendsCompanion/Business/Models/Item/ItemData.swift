@@ -11,7 +11,7 @@ struct ItemData: Codable {
     let type: ItemTypeEnum
     let version: String
     let basic: Basic
-    let data: [String: ItemDatum]
+    let data: [String: Item]
     let groups: [Group]
     let tree: [Tree]
 }
@@ -48,7 +48,7 @@ struct Rune: Codable {
 }
 
 // MARK: - Datum
-struct ItemDatum: Codable, Hashable {
+struct Item: Codable, Hashable {
     let name, description, colloq, plaintext: String
     let into: [String]?
     let image: ItemImage
@@ -67,7 +67,7 @@ struct ItemDatum: Codable, Hashable {
     let requiredAlly: RequiredAlly?
     let specialRecipe: Int?
     
-    static func == (lhs: ItemDatum, rhs: ItemDatum) -> Bool {
+    static func == (lhs: Item, rhs: Item) -> Bool {
         lhs.name == rhs.name
     }
     

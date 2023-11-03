@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 enum ListPicker: String, CaseIterable {
     case champions
@@ -15,15 +14,10 @@ enum ListPicker: String, CaseIterable {
 
 @MainActor
 final class CollectionViewModel: ObservableObject {
-    @ObservedResults(ChampionModel.self) var champions
-    @ObservedResults(ItemModel.self) var items
-        
     @Published var picker: ListPicker = .champions
     @Published var searchText: String = ""
     
-    func searchedChampions() -> [Champion] {
-        var championList: [Champion] = champions.map({ Champion($0) })
-        
+    func searched(championList: [Champion]) -> [Champion] {
         if searchText.isEmpty {
             return championList
         } else {
@@ -31,9 +25,7 @@ final class CollectionViewModel: ObservableObject {
         }
     }
     
-    func searchedItems() -> [Item] {
-        var itemList: [Item] = items.map({ Item($0) })
-        
+    func searchedItems(itemList: [Item]) -> [Item] {
         if searchText.isEmpty {
             return itemList
         } else {

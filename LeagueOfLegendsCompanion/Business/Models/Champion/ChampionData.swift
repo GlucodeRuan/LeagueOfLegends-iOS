@@ -12,12 +12,12 @@ struct ChampionData: Codable {
     let type: ChampTypeEnum
     let format: String
     let version: Version
-    let data: [String: ChampDatum]
+    let data: [String: Champion]
 }
 
 // MARK: - Champ
-struct ChampDatum: Codable, Hashable {
-    static func == (lhs: ChampDatum, rhs: ChampDatum) -> Bool {
+struct Champion: Codable, Hashable {
+    static func == (lhs: Champion, rhs: Champion) -> Bool {
         lhs.id == rhs.id
     }
     
@@ -71,7 +71,6 @@ enum ChampTag: String, Codable, CaseIterable {
 }
 
 enum Version: String, Codable {
-    case the1261 = "12.6.1"
     case the13211 = "13.21.1"
 }
 

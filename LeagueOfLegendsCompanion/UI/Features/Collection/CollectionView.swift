@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
-    let dataStore = DataStoreHandler()
+    @StateObject var dataStore = DataStoreHandler()
     @StateObject var viewModel: CollectionViewModel = CollectionViewModel()
     var body: some View {
         NavigationStack {
@@ -23,7 +23,7 @@ struct CollectionView: View {
                 
                 switch viewModel.picker {
                 case .champions:
-                    List(Array(viewModel.searchedChampions()), id: \.self) { champion in
+                    List(Array(viewModel.searched(championList: dataStore.championList)), id: \.self) { champion in
                         NavigationLink(value: champion) {
                             Text(champion.name)
                         }
@@ -32,7 +32,7 @@ struct CollectionView: View {
                         ChampionDetailView(champion: champion)
                     }
                 case .items:
-                    List(Array(viewModel.searchedItems()), id: \.self) { item in
+                    List(Array(viewModel.searchedItems(itemList: dataStore.itemList)), id: \.self) { item in
                         NavigationLink(value: item) {
                             Text(item.name)
                         }

@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ItemDetailView: View {
     @StateObject var viewModel: ItemDetailViewModel
-    @State var loading: Bool = true
 
     init(item: Item) {
         self._viewModel = StateObject(wrappedValue: ItemDetailViewModel(item: item))
@@ -40,7 +38,7 @@ struct ItemDetailView: View {
                 }
                 .padding(.bottom)
                 
-                Label(String(describing: viewModel.item.basePrice), systemImage: "g.circle.fill")
+                Label(String(describing: viewModel.item.gold.base), systemImage: "g.circle.fill")
                     .foregroundColor(.yellow)
                     .padding(.bottom)
                 
@@ -58,9 +56,9 @@ struct ItemDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     
                     VStack(alignment: .leading, spacing: 0) {
-//                        ForEach(Array(viewModel.item.stats), id: \.key) { key, value in
-//                            Text("\(key): \(String(format: "%g", value))")
-//                        }
+                        ForEach(Array(viewModel.item.stats), id: \.key) { key, value in
+                            Text("\(key): \(String(format: "%g", value))")
+                        }
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -70,6 +68,5 @@ struct ItemDetailView: View {
             }
             .padding()
         }
-        .redacted(reason: loading ? .placeholder : [])
     }
 }
