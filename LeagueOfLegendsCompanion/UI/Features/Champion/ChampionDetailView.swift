@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChampionDetailView: View {
     @StateObject var viewModel: ChampionDetailViewModel
-    @State var loading: Bool = true
     
     init(champion: Champion) {
         self._viewModel = StateObject(wrappedValue: ChampionDetailViewModel(champion: champion))

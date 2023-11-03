@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var dataStore = DataStoreHandler()
-    @State var message: String?
+
     var body: some View {
         TabView {
             CollectionView()
