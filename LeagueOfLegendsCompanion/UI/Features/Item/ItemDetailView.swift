@@ -15,45 +15,6 @@ struct ItemDetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                HStack {
-                    AsyncImage(url: viewModel.fetchItemImage()) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .frame(width: 50 ,height: 50)
-                    } placeholder: {
-                        ProgressView()
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .clipped()
-                    }
-                    .padding(.trailing)
-
-                    Text(viewModel.item.name)
-                        .font(.title)
-                    
-                    Spacer()
-                }
-                .padding(.bottom)
-                
-                Label(String(describing: viewModel.item.basePrice), systemImage: "g.circle.fill")
-                    .foregroundColor(.yellow)
-                    .padding(.bottom)
-                
-                Divider()
-                
-                Text("Info")
-                    .font(.headline)
-                    .padding(.bottom)
-
-                Text(viewModel.item.plaintext)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding(.bottom)
-            }
-            .padding()
-        }
+        Text("Hello summoner!")
     }
 }
