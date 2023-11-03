@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ChampionDetailView: View {
     @StateObject var viewModel: ChampionDetailViewModel
@@ -27,23 +26,18 @@ struct ChampionDetailView: View {
                         .font(.subheadline)
                 }
                 .padding(.bottom)
-
-                KFImage(viewModel.fetchChampImage(for: .splash))
-                    .resizable()
-                    .onProgress({ receivedSize, totalSize in
-                        loading = true
-                    })
-                    .onSuccess({ result in
-                        loading = false
-                    })
-                    .onFailureImage(KFCrossPlatformImage(systemName: "wifi.slash"))
-                    .onFailure({ error in
-                        loading = false
-                        print(error)
-                    })
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .padding(.bottom)
+                
+            AsyncImage(url: viewModel.fetchChampImage(for: .splash)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                } placeholder: {
+                    ProgressView()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .clipped()
+                }
+                .padding(.bottom)
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Class")

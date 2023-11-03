@@ -15,7 +15,7 @@ enum NetworkError: String, Error {
 
 class NetworkHandler: ObservableObject {
     
-    func fetchLatestVersion(error: @escaping (NetworkError?) -> Void) async throws -> VersionData {
+    func fetchLatestVersion() async throws -> VersionData {
         let endpoint = "https://ddragon.leagueoflegends.com/api/versions.json"
         
         guard let url = URL(string: endpoint) else {
@@ -38,7 +38,7 @@ class NetworkHandler: ObservableObject {
         }
     }
     
-    func fetchChampionList(for version: String, error: @escaping (NetworkError?) -> Void) async throws -> ChampionData {
+    func fetchChampionList(for version: String) async throws -> ChampionData {
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion.json"
         
         guard let url = URL(string: endpoint) else {
@@ -61,7 +61,7 @@ class NetworkHandler: ObservableObject {
         }
     }
     
-    func fetchItemList(for version: String, error: @escaping (NetworkError?) -> Void) async throws -> ItemData{
+    func fetchItemList(for version: String) async throws -> ItemData {
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/item.json"
         
         guard let url = URL(string: endpoint) else {

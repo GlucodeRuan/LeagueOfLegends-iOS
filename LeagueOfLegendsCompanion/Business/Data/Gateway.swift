@@ -15,43 +15,37 @@ final class Gateway {
     private let networkHandler: NetworkHandler = NetworkHandler()
     private var tasks: [Task<Void, Never>] = []
 
-    func fetchVersions(completion: @escaping (VersionData?, NetworkError?, DataError?) -> Void) {
+    func fetchVersions(completion: @escaping (VersionData?) -> Void) {
         let task = Task {
             do {
-                let data = try await networkHandler.fetchLatestVersion() { error in
-                    completion(nil, error, nil)
-                }
-                completion(data, nil, nil)
+                let data = try await networkHandler.fetchLatestVersion()
+                completion(data)
             } catch {
-                completion(nil, nil, DataError.unreadable_Data)
+                // Handel error
             }
         }
         tasks.append(task)
     }
     
-    func fetchChampions(for version: String, completion: @escaping (ChampionData?, NetworkError?, DataError?) -> Void) {
+    func fetchChampions(for version: String, completion: @escaping (ChampionData?) -> Void) {
         let task = Task {
             do {
-                let data = try await networkHandler.fetchChampionList(for: version) { error in
-                    completion(nil, error, nil)
-                }
-                completion(data, nil, nil)
+                let data = try await networkHandler.fetchChampionList(for: version)
+                completion(data)
             } catch {
-                completion(nil, nil, DataError.unreadable_Data)
+                // Handel error
             }
         }
         tasks.append(task)
     }
     
-    func fetchItems(for version: String, completion: @escaping (ItemData?, NetworkError?, DataError?) -> Void) {
+    func fetchItems(for version: String, completion: @escaping (ItemData?) -> Void) {
         let task = Task {
             do {
-                let data = try await networkHandler.fetchItemList(for: version) { error in
-                    completion(nil, error, nil)
-                }
-                completion(data, nil, nil)
+                let data = try await networkHandler.fetchItemList(for: version)
+                completion(data)
             } catch {
-                completion(nil, nil, DataError.unreadable_Data)
+                // Handel error
             }
         }
         tasks.append(task)

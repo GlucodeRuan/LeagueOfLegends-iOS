@@ -16,44 +16,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Collection", systemImage: "backpack")
                 }
-            PracticeToolView()
-                .tabItem {
-                    Label("Practice Tool", systemImage: "scope")
-                }
         }
         .tint(.primary)
         .onAppear {
-            dataStore.checkVersion { message in
-                self.message = message
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.message = nil
-                }
-            }
+            dataStore.checkVersion()
         }
-        .refreshable {
-            dataStore.checkVersion() { message in
-                self.message = message
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.message = nil
-                }
-            }
-        }
-        .overlay(alignment: .top) {
-            if let message {
-                alertMessage(message)
-            }
-        }
-    }
-    
-    @ViewBuilder
-    private func alertMessage(_ message: String) -> some View {
-        Capsule()
-            .fill(Color(uiColor: .tertiarySystemBackground))
-            .frame(width: 100, height: 50, alignment: .center)
-            .overlay {
-                Text(message.capitalized)
-            }
-            .opacity(0.75)
     }
 }
 

@@ -12,7 +12,6 @@
 		1A9AC25A2A7CD97C00350C1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AC2592A7CD97C00350C1E /* Assets.xcassets */; };
 		1A9AC25D2A7CD97C00350C1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AC25C2A7CD97C00350C1E /* Preview Assets.xcassets */; };
 		1A9AC2652A7CD9EC00350C1E /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AC2642A7CD9EC00350C1E /* ChampionData.swift */; };
-		1ABF96C32AF2E13700798E26 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABF96C22AF2E13700798E26 /* Kingfisher */; };
 		1AE5BB2B2AEED8C3007A1222 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1AE5BB2A2AEED8C3007A1222 /* Realm */; };
 		1AE5BB2D2AEED8C3007A1222 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1AE5BB2C2AEED8C3007A1222 /* RealmSwift */; };
 		1AE5BB2F2AEED8D4007A1222 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5BB2E2AEED8D4007A1222 /* ItemModel.swift */; };
@@ -32,10 +31,8 @@
 		1AF13C9C2A7E66FA00C6A4FC /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C9B2A7E66FA00C6A4FC /* ItemDetailView.swift */; };
 		1AF13C9E2A7E672D00C6A4FC /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C9D2A7E672D00C6A4FC /* ItemDetailViewModel.swift */; };
 		1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */; };
-		1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */; };
 		1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */; };
 		1AF13CAA2A7F081300C6A4FC /* Extension + UTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */; };
-		1AF13CAD2A7F0B2700C6A4FC /* PracticeToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,11 +59,9 @@
 		1AF13C9B2A7E66FA00C6A4FC /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		1AF13C9D2A7E672D00C6A4FC /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreHandler.swift; sourceTree = "<group>"; };
-		1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeToolView.swift; sourceTree = "<group>"; };
 		1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
 		1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UTType.swift"; sourceTree = "<group>"; };
 		1AF13CAB2A7F09A100C6A4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeToolViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ABF96C32AF2E13700798E26 /* Kingfisher in Frameworks */,
 				1AE5BB2D2AEED8C3007A1222 /* RealmSwift in Frameworks */,
 				1AE5BB2B2AEED8C3007A1222 /* Realm in Frameworks */,
 			);
@@ -240,15 +234,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		1AF13CA32A7EE98B00C6A4FC /* PracticeTool */ = {
-			isa = PBXGroup;
-			children = (
-				1AF13CA42A7EE9A400C6A4FC /* PracticeToolView.swift */,
-				1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */,
-			);
-			path = PracticeTool;
-			sourceTree = "<group>";
-		};
 		1AF13CA62A7F008300C6A4FC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +246,6 @@
 		F3BCDC232AE58F21004E1B2B /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				1AF13CA32A7EE98B00C6A4FC /* PracticeTool */,
 				1AF13C9A2A7E66E100C6A4FC /* Item */,
 				1AF13C8F2A7E4EB600C6A4FC /* Champion */,
 				1AF13C8B2A7E4DB500C6A4FC /* Collection */,
@@ -288,7 +272,6 @@
 			packageProductDependencies = (
 				1AE5BB2A2AEED8C3007A1222 /* Realm */,
 				1AE5BB2C2AEED8C3007A1222 /* RealmSwift */,
-				1ABF96C22AF2E13700798E26 /* Kingfisher */,
 			);
 			productName = LeagueOfLegendsCompanion;
 			productReference = 1A9AC2522A7CD97A00350C1E /* LeagueOfLegendsCompanion.app */;
@@ -320,7 +303,6 @@
 			mainGroup = 1A9AC2492A7CD97A00350C1E;
 			packageReferences = (
 				1AE5BB292AEED8C3007A1222 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				1ABF96C12AF2E13700798E26 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 1A9AC2532A7CD97A00350C1E /* Products */;
 			projectDirPath = "";
@@ -362,10 +344,8 @@
 				1AF13C8A2A7E4D7C00C6A4FC /* CollectionView.swift in Sources */,
 				1A9AC2582A7CD97A00350C1E /* ContentView.swift in Sources */,
 				1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */,
-				1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */,
 				1AE5BB402AEFA760007A1222 /* Gateway.swift in Sources */,
 				1A9AC2562A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift in Sources */,
-				1AF13CAD2A7F0B2700C6A4FC /* PracticeToolViewModel.swift in Sources */,
 				1AE5BB3C2AEF9631007A1222 /* VersionData.swift in Sources */,
 				1AE5BB332AEEDE48007A1222 /* Item.swift in Sources */,
 				1AF13C912A7E4ECC00C6A4FC /* ChampionDetailView.swift in Sources */,
@@ -578,14 +558,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1ABF96C12AF2E13700798E26 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.10.0;
-			};
-		};
 		1AE5BB292AEED8C3007A1222 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -597,11 +569,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1ABF96C22AF2E13700798E26 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1ABF96C12AF2E13700798E26 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		1AE5BB2A2AEED8C3007A1222 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1AE5BB292AEED8C3007A1222 /* XCRemoteSwiftPackageReference "realm-swift" */;
