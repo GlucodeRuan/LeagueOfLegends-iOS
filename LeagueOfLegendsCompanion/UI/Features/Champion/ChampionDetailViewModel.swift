@@ -8,9 +8,9 @@
 import SwiftUI
 
 class ChampionDetailViewModel: ObservableObject {
-    @Published var champion: Datum
+    @Published var champion: Champion
     
-    init(champion: Datum) {
+    init(champion: Champion) {
         self.champion = champion
     }
     

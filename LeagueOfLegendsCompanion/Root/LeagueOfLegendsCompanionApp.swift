@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct LeagueOfLegendsCompanionApp: App {
+struct LeagueOfLegendsCompanionApp: App {    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                
         }
     }
 }
