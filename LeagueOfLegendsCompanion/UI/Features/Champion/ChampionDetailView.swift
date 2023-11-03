@@ -40,20 +40,6 @@ struct ChampionDetailView: View {
                 .padding(.bottom)
 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Class")
-                        .font(.headline)
-//                    ForEach(viewModel.champion.tags, id:\.rawValue) { tag in
-//                        Text("• \(tag.rawValue)")
-//                            .font(.footnote)
-//                            .foregroundColor(.secondary)
-//                        
-//                    }
-                }
-                .padding(.bottom)
-                
-                Divider()
-                
-                VStack(alignment: .leading, spacing: 8) {
                     Text("Origin")
                         .font(.headline)
                     Text(viewModel.champion.origin)
@@ -67,9 +53,6 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Info")
                         .font(.headline)
-//                    Text("Consumption type: \(viewModel.champion.partype)")
-//                        .font(.subheadline)
-//                        .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Attack: \(viewModel.champion.attack)")
                         Text("Defense: \(viewModel.champion.defense)")
@@ -81,26 +64,9 @@ struct ChampionDetailView: View {
                 }
                 .padding(.bottom)
                 
-                Divider()
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Stats")
-                        .font(.headline)
-                    
-                    VStack(alignment: .leading, spacing: 0) {
-//                        ForEach(Array(viewModel.champion.stats), id: \.key) { key, value in
-//                            Text("\(key): \(String(format: "%g", value))")
-//                        }
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                }
-                .padding(.bottom)
-                
                 Spacer()
             }
             .padding()
         }
-        .redacted(reason: loading ? .placeholder : [])
     }
 }

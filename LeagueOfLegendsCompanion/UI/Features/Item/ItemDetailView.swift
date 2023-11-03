@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ItemDetailView: View {
     @StateObject var viewModel: ItemDetailViewModel
-    @State var loading: Bool = true
 
     init(item: Item) {
         self._viewModel = StateObject(wrappedValue: ItemDetailViewModel(item: item))
@@ -54,22 +52,8 @@ struct ItemDetailView: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .padding(.bottom)
-
-                VStack(alignment: .leading, spacing: 8) {
-                    
-                    VStack(alignment: .leading, spacing: 0) {
-//                        ForEach(Array(viewModel.item.stats), id: \.key) { key, value in
-//                            Text("\(key): \(String(format: "%g", value))")
-//                        }
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                }
-                .padding(.bottom)
-                
             }
             .padding()
         }
-        .redacted(reason: loading ? .placeholder : [])
     }
 }
