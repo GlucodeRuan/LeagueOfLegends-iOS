@@ -20,7 +20,6 @@
 		1AE5BB352AEEDE51007A1222 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5BB342AEEDE51007A1222 /* Champion.swift */; };
 		1AE5BB392AEF9365007A1222 /* VersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5BB382AEF9365007A1222 /* VersionModel.swift */; };
 		1AE5BB3C2AEF9631007A1222 /* VersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5BB3B2AEF9631007A1222 /* VersionData.swift */; };
-		1AE5BB3E2AEFA18F007A1222 /* RealmAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5BB3D2AEFA18F007A1222 /* RealmAdapter.swift */; };
 		1AE5BB402AEFA760007A1222 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5BB3F2AEFA760007A1222 /* Gateway.swift */; };
 		1AF13C8A2A7E4D7C00C6A4FC /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C892A7E4D7C00C6A4FC /* CollectionView.swift */; };
 		1AF13C8E2A7E4E0000C6A4FC /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13C8D2A7E4E0000C6A4FC /* CollectionViewModel.swift */; };
@@ -48,7 +47,6 @@
 		1AE5BB342AEEDE51007A1222 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		1AE5BB382AEF9365007A1222 /* VersionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionModel.swift; sourceTree = "<group>"; };
 		1AE5BB3B2AEF9631007A1222 /* VersionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionData.swift; sourceTree = "<group>"; };
-		1AE5BB3D2AEFA18F007A1222 /* RealmAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAdapter.swift; sourceTree = "<group>"; };
 		1AE5BB3F2AEFA760007A1222 /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		1AF13C892A7E4D7C00C6A4FC /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		1AF13C8D2A7E4E0000C6A4FC /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				1AF13CA12A7EE77B00C6A4FC /* DataStoreHandler.swift */,
-				1AE5BB3D2AEFA18F007A1222 /* RealmAdapter.swift */,
 				1AE5BB3F2AEFA760007A1222 /* Gateway.swift */,
 			);
 			path = Data;
@@ -332,7 +329,6 @@
 			files = (
 				1AE5BB352AEEDE51007A1222 /* Champion.swift in Sources */,
 				1AE5BB2F2AEED8D4007A1222 /* ItemModel.swift in Sources */,
-				1AE5BB3E2AEFA18F007A1222 /* RealmAdapter.swift in Sources */,
 				1AE5BB392AEF9365007A1222 /* VersionModel.swift in Sources */,
 				1AE5BB312AEEDDB4007A1222 /* ChampionModel.swift in Sources */,
 				1AF13CAA2A7F081300C6A4FC /* Extension + UTType.swift in Sources */,

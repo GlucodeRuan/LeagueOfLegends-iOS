@@ -15,7 +15,7 @@ class ItemDetailViewModel: ObservableObject {
     }
     
     func fetchItemImage() -> URL? {
-        let endpoint = "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/item/"
+        let endpoint = "https://ddragon.leagueoflegends.com/cdn/13.21.1/img/item/"
         let image = "\(item.image)"
         let result = endpoint + image
         let url = URL(string: result)

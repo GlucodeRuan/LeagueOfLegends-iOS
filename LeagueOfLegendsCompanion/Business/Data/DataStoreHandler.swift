@@ -10,7 +10,7 @@ import RealmSwift
 import Combine
 
 final class DataStoreHandler: ObservableObject {
-        
+    
     private let gateway: Gateway
     
     init() {
@@ -22,19 +22,10 @@ final class DataStoreHandler: ObservableObject {
             if let versionData {
                 let usableVersions = versionData.versions.filter({ !$0.lowercased().contains("lolpatch_")})
                 let latestVersion = usableVersions.first!
-                if let persistedVersion = VersionModel().read(key: "singleton") {
-                    if latestVersion != persistedVersion.latestVersion {
-                        self.updateVersionModel(with: usableVersions)
-                        self.fetchItems(for: latestVersion)
-                        self.fetchChampions(for: latestVersion)
-                    }
-                } else {
-                    var firstVersionList: [String] = []
-                    firstVersionList.append(latestVersion)
-                    self.updateVersionModel(with: firstVersionList)
-                    self.fetchItems(for: latestVersion)
-                    self.fetchChampions(for: latestVersion)
-                }
+                
+                self.updateVersionModel(with: usableVersions)
+                self.fetchItems(for: latestVersion)
+                self.fetchChampions(for: latestVersion)
             }
         }
     }
@@ -59,37 +50,14 @@ final class DataStoreHandler: ObservableObject {
     }
     
     private func updateVersionModel(with data: [String]) {
-        let model = VersionModel(data)
-        VersionModel().update(model)
+        // update realm model
     }
     
     private func updateChampionModel(with data: [ChampDatum]) {
-        for datum in data {
-            let champion = Champion(image: datum.image.full, name: datum.name,
-                                    title: datum.title, blurb: datum.blurb,
-                                    attack: datum.info.attack,
-                                    defense: datum.info.defense,
-                                    magic: datum.info.magic,
-                                    difficulty: datum.info.difficulty)
-            
-            let model = ChampionModel(champion)
-            ChampionModel().update(model)
-        }
+        // update realm model
     }
     
     func updateItemModel(with data: [ItemDatum]) {
-        for datum in data {
-            let item = Item(name: datum.name,
-                            image: datum.image.full,
-                            basePrice: datum.gold.base,
-                            sellPrice: datum.gold.sell,
-                            itemDescription: datum.description,
-                            colloq: datum.colloq,
-                            plaintext: datum.plaintext,
-                            stacks: datum.stacks)
-            
-            let model = ItemModel(item)
-            ItemModel().update(model)
-        }
+        // update realm model
     }
 }
