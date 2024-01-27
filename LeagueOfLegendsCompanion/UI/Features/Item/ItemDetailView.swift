@@ -20,7 +20,6 @@ struct ItemDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
-                    
                     KFImage(viewModel.fetchItemImage())
                         .resizable()
                         .onProgress({ receivedSize, totalSize in
@@ -34,6 +33,7 @@ struct ItemDetailView: View {
                             loading = false
                             print(error)
                         })
+                        .forceRefresh(!loading)
                         .aspectRatio(contentMode: .fit)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .frame(width: 50 ,height: 50)

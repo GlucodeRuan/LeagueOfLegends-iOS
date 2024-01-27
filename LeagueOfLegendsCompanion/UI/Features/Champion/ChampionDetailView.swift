@@ -20,8 +20,8 @@ struct ChampionDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-                    Text(viewModel.champion.name)
-                        .font(.title)
+//                    Text(viewModel.champion.name)
+//                        .font(.title)
                     Text(viewModel.champion.alias.capitalized)
                         .foregroundStyle(.secondary)
                         .font(.subheadline)
@@ -41,6 +41,7 @@ struct ChampionDetailView: View {
                         loading = false
                         print(error)
                     })
+                    .forceRefresh(!loading)
                     .aspectRatio(contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.bottom)
@@ -107,6 +108,8 @@ struct ChampionDetailView: View {
             }
             .padding()
         }
+        .navigationTitle(viewModel.champion.name)
+        .navigationBarTitleDisplayMode(.automatic)
         .redacted(reason: loading ? .placeholder : [])
     }
 }
