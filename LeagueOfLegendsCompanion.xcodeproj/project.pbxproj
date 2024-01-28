@@ -36,6 +36,7 @@
 		1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */; };
 		1AF13CAA2A7F081300C6A4FC /* Extension + UTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */; };
 		1AF13CAD2A7F0B2700C6A4FC /* PracticeToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */; };
+		F39BCA7D2B654C6600C2903D /* DecoderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39BCA7C2B654C6600C2903D /* DecoderFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UTType.swift"; sourceTree = "<group>"; };
 		1AF13CAB2A7F09A100C6A4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1AF13CAC2A7F0B2700C6A4FC /* PracticeToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeToolViewModel.swift; sourceTree = "<group>"; };
+		F39BCA7C2B654C6600C2903D /* DecoderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF13C942A7E510A00C6A4FC /* NetworkHandler.swift */,
+				F39BCA7C2B654C6600C2903D /* DecoderFactory.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				1A9AC2582A7CD97A00350C1E /* ContentView.swift in Sources */,
 				1AF13CA22A7EE77B00C6A4FC /* DataStoreHandler.swift in Sources */,
 				1AF13CA52A7EE9A400C6A4FC /* PracticeToolView.swift in Sources */,
+				F39BCA7D2B654C6600C2903D /* DecoderFactory.swift in Sources */,
 				1AE5BB402AEFA760007A1222 /* Gateway.swift in Sources */,
 				1A9AC2562A7CD97A00350C1E /* LeagueOfLegendsCompanionApp.swift in Sources */,
 				1AF13CAD2A7F0B2700C6A4FC /* PracticeToolViewModel.swift in Sources */,

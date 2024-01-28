@@ -49,12 +49,12 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Class")
                         .font(.headline)
-//                    ForEach(viewModel.champion.tags, id:\.rawValue) { tag in
-//                        Text("• \(tag.rawValue)")
-//                            .font(.footnote)
-//                            .foregroundColor(.secondary)
-//                        
-//                    }
+                    ForEach(viewModel.champion.tags, id: \.self) { tag in
+                        Text("• \(tag)")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                        
+                    }
                 }
                 .padding(.bottom)
                 

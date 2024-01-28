@@ -18,7 +18,8 @@ final class ChampionModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
     @Persisted var defense: Int = 0
     @Persisted var magic: Int = 0
     @Persisted var difficulty: Int = 0
-    
+    @Persisted var tags: List<String> = List<String>()
+
     convenience init(_ model: Champion) {
         self.init()
         self.image = model.image
@@ -29,5 +30,6 @@ final class ChampionModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
         self.defense = model.defense
         self.magic = model.magic
         self.difficulty = model.difficulty
+        self.tags.append(objectsIn: model.tags)
     }
 }

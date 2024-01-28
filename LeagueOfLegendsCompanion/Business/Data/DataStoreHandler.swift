@@ -104,8 +104,10 @@ final class DataStoreHandler: ObservableObject {
                                     attack: datum.info.attack,
                                     defense: datum.info.defense,
                                     magic: datum.info.magic,
-                                    difficulty: datum.info.difficulty)
-            
+                                    difficulty: datum.info.difficulty,
+                                    tags: datum.tags.map { $0.rawValue }
+            )
+
             let model = ChampionModel(champion)
             ChampionModel().update(model)
         }
