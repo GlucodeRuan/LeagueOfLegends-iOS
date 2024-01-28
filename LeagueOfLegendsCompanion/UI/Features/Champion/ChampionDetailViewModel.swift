@@ -23,3 +23,5 @@ class ChampionDetailViewModel: ObservableObject {
         return url
     }
 }
+
+//https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Evelynn_0.jpg
