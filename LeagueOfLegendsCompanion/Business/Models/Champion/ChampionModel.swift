@@ -19,6 +19,9 @@ final class ChampionModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
     @Persisted var magic: Int = 0
     @Persisted var difficulty: Int = 0
     @Persisted var tags: List<String> = List<String>()
+    @Persisted var partype: String = ""
+    @Persisted var stats: Map<String, Double>
+
 
     convenience init(_ model: Champion) {
         self.init()
@@ -31,5 +34,16 @@ final class ChampionModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
         self.magic = model.magic
         self.difficulty = model.difficulty
         self.tags.append(objectsIn: model.tags)
+        self.partype = model.partype
+
+        self.updateStats(model)
+    }
+
+    private func updateStats(_ model: Champion) {
+        let stats = model.stats
+
+        for stat in stats {
+            self.stats.setValue(stat.value, forKey: stat.key)
+        }
     }
 }

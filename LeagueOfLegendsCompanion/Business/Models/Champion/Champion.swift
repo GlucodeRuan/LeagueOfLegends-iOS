@@ -18,6 +18,8 @@ struct Champion: Hashable {
     var magic: Int
     var difficulty: Int
     var tags: [String]
+    var partype: String
+    var stats: [String: Double]
 
     init(_ model: ChampionModel) {
         self.name = model.name
@@ -28,8 +30,12 @@ struct Champion: Hashable {
         self.difficulty = model.difficulty
         self.image = model.image
         self.alias = model.alias
-        self.tags = []
+        self.tags = [String]()
+        self.partype = model.partype
+        self.stats = [String: Double]()
+
         self.updateTags(model)
+        self.updateStats(model)
     }
 
     init(image: String,
@@ -40,7 +46,9 @@ struct Champion: Hashable {
          defense: Int,
          magic: Int,
          difficulty: Int,
-         tags: [String]) {
+         tags: [String],
+         partype: String,
+         stats: [String: Double]) {
         self.name = name
         self.origin = blurb
         self.attack = attack
@@ -50,6 +58,8 @@ struct Champion: Hashable {
         self.image = image
         self.alias = title
         self.tags = tags
+        self.partype = partype
+        self.stats = stats
     }
 
     static func == (lhs: Champion, rhs: Champion) -> Bool {
@@ -62,5 +72,13 @@ struct Champion: Hashable {
 
     private mutating func updateTags(_ model: ChampionModel) {
         self.tags.append(contentsOf: model.tags)
+    }
+
+    private mutating func updateStats(_ model: ChampionModel) {
+        let stats = model.stats
+
+        for stat in stats {
+            self.stats.updateValue(stat.value, forKey: stat.key)
+        }
     }
 }

@@ -20,8 +20,6 @@ struct ChampionDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-//                    Text(viewModel.champion.name)
-//                        .font(.title)
                     Text(viewModel.champion.alias.capitalized)
                         .foregroundStyle(.secondary)
                         .font(.subheadline)
@@ -74,9 +72,6 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Info")
                         .font(.headline)
-//                    Text("Consumption type: \(viewModel.champion.partype)")
-//                        .font(.subheadline)
-//                        .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Attack: \(viewModel.champion.attack)")
                         Text("Defense: \(viewModel.champion.defense)")
@@ -93,11 +88,15 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Stats")
                         .font(.headline)
-                    
+                    Text("Consumption type: \(viewModel.champion.partype)")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {
-//                        ForEach(Array(viewModel.champion.stats), id: \.key) { key, value in
-//                            Text("\(key): \(String(format: "%g", value))")
-//                        }
+                        ForEach(Array(viewModel.champion.stats.sorted {
+                            $0.key < $1.key
+                        }), id: \.key) { key, value in
+                            Text("\(key): \(String(format: "%g", value))")
+                        }
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
