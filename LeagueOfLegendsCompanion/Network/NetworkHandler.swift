@@ -13,53 +13,12 @@ enum NetworkError: String, Error {
     case invalidData
 }
 
-class NetworkHandler: ObservableObject {
-    func fetchLatestVersion(error: @escaping (NetworkError?) -> Void) async throws -> VersionData {
-        let endpoint = "https://ddragon.leagueoflegends.com/api/versions.json"
+protocol NetworkHandler {
+    func fetch<T: Codable>(for version: String?, to modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T
+}
 
-        guard let url = URL(string: endpoint) else {
-            throw NetworkError.invalidURL
-        }
-
-        do {
-            let result = try await DecoderFactory.decode(from: url, to: [String].self)
-            return VersionData(versions: result)
-        } catch {
-            throw NetworkError.invalidData
-        }
-    }
-
-    func fetchChampionList(for version: String, error: @escaping (NetworkError?) -> Void) async throws -> ChampionData {
-        let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion.json"
-
-        guard let url = URL(string: endpoint) else {
-            throw NetworkError.invalidURL
-        }
-
-        do {
-            let result = try await DecoderFactory.decode(from: url, to: ChampionData.self)
-            return result
-        } catch {
-            throw NetworkError.invalidData
-        }
-    }
-
-    func fetchItemList(for version: String, error: @escaping (NetworkError?) -> Void) async throws -> ItemData{
-        let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/item.json"
-
-        guard let url = URL(string: endpoint) else {
-            throw NetworkError.invalidURL
-        }
-
-        do {
-            let result = try await DecoderFactory.decode(from: url, to: ItemData.self)
-            return result
-        } catch {
-            throw NetworkError.invalidData
-        }
-    }
-
-    #warning("Obsolete")
+#warning("Obsolete")
+//class NetworkHandler: ObservableObject {
 //    func fetchLatestVersion(error: @escaping (NetworkError?) -> Void) async throws -> VersionData {
 //        let endpoint = "https://ddragon.leagueoflegends.com/api/versions.json"
 //        
@@ -128,4 +87,4 @@ class NetworkHandler: ObservableObject {
 //            throw NetworkError.invalidData
 //        }
 //    }
-}
+//}
