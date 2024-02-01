@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CollectionView: View {
-    let dataStore = DataStoreHandler()
     @StateObject var viewModel: CollectionViewModel = CollectionViewModel()
     var body: some View {
         NavigationStack {
