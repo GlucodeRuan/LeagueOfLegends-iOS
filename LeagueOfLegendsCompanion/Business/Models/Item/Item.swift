@@ -18,7 +18,8 @@ struct Item: Codable, Hashable, Transferable {
     var colloq: String
     var plaintext: String
     var stacks: Int?
-    
+    var stats: [String: Double]
+
     init(_ model: ItemModel) {
         self.name = model.name
         self.image = model.image
@@ -28,6 +29,9 @@ struct Item: Codable, Hashable, Transferable {
         self.colloq = model.colloq
         self.plaintext = model.plaintext
         self.stacks = model.stacks
+        self.stats = [String: Double]()
+
+        self.updateStats(model)
     }
     
     init(name: String, 
@@ -37,7 +41,8 @@ struct Item: Codable, Hashable, Transferable {
          itemDescription: String,
          colloq: String,
          plaintext: String,
-         stacks: Int?) {
+         stacks: Int?,
+         stats: [String: Double]) {
         self.name = name
         self.image = image
         self.basePrice = basePrice
@@ -46,6 +51,7 @@ struct Item: Codable, Hashable, Transferable {
         self.colloq = colloq
         self.plaintext = plaintext
         self.stacks = stacks
+        self.stats = stats
     }
     
     static func == (lhs: Item, rhs: Item) -> Bool {
@@ -58,5 +64,13 @@ struct Item: Codable, Hashable, Transferable {
     
     static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .shopItem)
+    }
+
+    private mutating func updateStats(_ model: ItemModel) {
+        let stats = model.stats
+
+        for stat in stats {
+            self.stats.updateValue(stat.value, forKey: stat.key)
+        }
     }
 }

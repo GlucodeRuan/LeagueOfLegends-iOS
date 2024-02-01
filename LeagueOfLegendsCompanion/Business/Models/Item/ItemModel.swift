@@ -18,7 +18,8 @@ final class ItemModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
     @Persisted var colloq: String = ""
     @Persisted var plaintext: String = ""
     @Persisted var stacks: Int? = nil
-    
+    @Persisted var stats: Map<String, Double>
+
     convenience init(_ model: Item) {
         self.init()
 
@@ -30,6 +31,16 @@ final class ItemModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
         self.colloq = model.colloq
         self.plaintext = model.plaintext
         self.stacks = model.stacks
+
+        self.updateStats(model)
+    }
+
+    private func updateStats(_ model: Item) {
+        let stats = model.stats
+
+        for stat in stats {
+            self.stats.setValue(stat.value, forKey: stat.key)
+        }
     }
 }
 

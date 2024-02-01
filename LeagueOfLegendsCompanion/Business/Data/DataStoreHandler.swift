@@ -124,8 +124,9 @@ final class DataStoreHandler: ObservableObject {
                             itemDescription: datum.description,
                             colloq: datum.colloq,
                             plaintext: datum.plaintext,
-                            stacks: datum.stacks)
-            
+                            stacks: datum.stacks, 
+                            stats: datum.stats)
+
             let model = ItemModel(item)
             ItemModel().update(model)
         }

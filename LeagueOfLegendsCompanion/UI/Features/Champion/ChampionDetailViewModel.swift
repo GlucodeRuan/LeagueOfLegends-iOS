@@ -9,11 +9,21 @@ import SwiftUI
 
 class ChampionDetailViewModel: ObservableObject {
     @Published var champion: Champion
-    
+
     init(champion: Champion) {
         self.champion = champion
     }
-    
+
+    func readableStats() -> [String: Double] {
+        var readableStats = [String: Double]()
+
+        for (key,value) in champion.stats {
+            readableStats[key.addSpacesToCaps()] = value
+        }
+
+        return readableStats
+    }
+
     func fetchChampImage(for type: ChampionImageTypes) -> URL? {
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/img/champion/\(type)/"
         let image = "\(champion.name)_0"

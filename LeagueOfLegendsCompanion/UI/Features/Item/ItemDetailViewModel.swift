@@ -13,7 +13,17 @@ class ItemDetailViewModel: ObservableObject {
     init(item: Item) {
         self.item = item
     }
-    
+
+    func readableStats() -> [String: Double] {
+        var readableStats = [String: Double]()
+
+        for (key,value) in item.stats {
+            readableStats[key.addSpacesToCaps()] = value
+        }
+
+        return readableStats
+    }
+
     func fetchItemImage() -> URL? {
         guard let latestVersion = VersionModel().read(key: "singleton")?.latestVersion else { return nil }
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/\(latestVersion)/img/item/"

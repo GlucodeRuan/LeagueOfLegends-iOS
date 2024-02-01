@@ -40,6 +40,7 @@
 		F39BCA7F2B6B892600C2903D /* VersionNetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39BCA7E2B6B892600C2903D /* VersionNetworkHandler.swift */; };
 		F39BCA812B6B89C700C2903D /* ChampionNetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39BCA802B6B89C700C2903D /* ChampionNetworkHandler.swift */; };
 		F39BCA832B6B8A1300C2903D /* ItemNetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39BCA822B6B8A1300C2903D /* ItemNetworkHandler.swift */; };
+		F39BCA852B6BA10900C2903D /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39BCA842B6BA10900C2903D /* Extension + String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		F39BCA7E2B6B892600C2903D /* VersionNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionNetworkHandler.swift; sourceTree = "<group>"; };
 		F39BCA802B6B89C700C2903D /* ChampionNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionNetworkHandler.swift; sourceTree = "<group>"; };
 		F39BCA822B6B8A1300C2903D /* ItemNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNetworkHandler.swift; sourceTree = "<group>"; };
+		F39BCA842B6BA10900C2903D /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 			children = (
 				1AF13CA72A7F009800C6A4FC /* Extension + Array.swift */,
 				1AF13CA92A7F081300C6A4FC /* Extension + UTType.swift */,
+				F39BCA842B6BA10900C2903D /* Extension + String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				1AF13CAA2A7F081300C6A4FC /* Extension + UTType.swift in Sources */,
 				1AF13C9E2A7E672D00C6A4FC /* ItemDetailViewModel.swift in Sources */,
 				1AF13CA82A7F009800C6A4FC /* Extension + Array.swift in Sources */,
+				F39BCA852B6BA10900C2903D /* Extension + String.swift in Sources */,
 				1AF13C9C2A7E66FA00C6A4FC /* ItemDetailView.swift in Sources */,
 				F39BCA812B6B89C700C2903D /* ChampionNetworkHandler.swift in Sources */,
 				1AF13C8E2A7E4E0000C6A4FC /* CollectionViewModel.swift in Sources */,

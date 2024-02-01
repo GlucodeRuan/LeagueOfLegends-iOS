@@ -25,12 +25,10 @@ struct Basic: Codable {
     let consumed: Bool
     let stacks, depth: Int
     let consumeOnFull: Bool
-//    let from, into: [JSONAny]
     let specialRecipe: Int
     let inStore, hideFromAll: Bool
     let requiredChampion, requiredAlly: String
     let stats: [String: Int]
-//    let tags: [JSONAny]
     let maps: [String: Bool]
 }
 

@@ -25,6 +25,7 @@ final class ChampionModel: Object, ObjectKeyIdentifiable, RealmAdaptable {
 
     convenience init(_ model: Champion) {
         self.init()
+
         self.image = model.image
         self.name = model.name
         self.alias = model.alias

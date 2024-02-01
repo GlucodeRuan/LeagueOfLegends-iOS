@@ -92,7 +92,7 @@ struct ChampionDetailView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {
-                        ForEach(Array(viewModel.champion.stats.sorted {
+                        ForEach(Array(viewModel.readableStats().sorted {
                             $0.key < $1.key
                         }), id: \.key) { key, value in
                             Text("\(key): \(String(format: "%g", value))")
