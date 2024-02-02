@@ -58,11 +58,12 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Class")
                         .font(.headline)
-                    ForEach(viewModel.champion.tags, id: \.self) { tag in
-                        Text("• \(tag)")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        
+                    VStack(alignment: .leading) {
+                        ForEach(viewModel.champion.tags, id: \.self) { tag in
+                            Text("• \(tag)")
+                                .font(.subheadline)                                .foregroundColor(.secondary)
+
+                        }
                     }
                 }
                 .padding(.bottom)
@@ -70,13 +71,13 @@ struct ChampionDetailView: View {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Info")
+                    Text("Primary Stats")
                         .font(.headline)
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("Attack: \(viewModel.champion.attack)")
-                        Text("Defense: \(viewModel.champion.defense)")
-                        Text("Magic: \(viewModel.champion.magic)")
-                        Text("Difficulty: \(viewModel.champion.difficulty)")
+                        Text("• Attack: \(viewModel.champion.attack)")
+                        Text("• Defense: \(viewModel.champion.defense)")
+                        Text("• Magic: \(viewModel.champion.magic)")
+                        Text("• Difficulty: \(viewModel.champion.difficulty)")
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -86,16 +87,16 @@ struct ChampionDetailView: View {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Stats")
+                    Text("Secondary Stats")
                         .font(.headline)
-                    Text("Consumption type: \(viewModel.champion.partype)")
+                    Text("• Consumption type: \(viewModel.champion.partype)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(Array(viewModel.readableStats().sorted {
                             $0.key < $1.key
                         }), id: \.key) { key, value in
-                            Text("\(key): \(String(format: "%g", value))")
+                            Text("• \(key): \(String(format: "%g", value))")
                         }
                     }
                     .font(.subheadline)
@@ -117,7 +118,7 @@ struct ChampionDetailView: View {
     ChampionDetailView(champion: Champion(image: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Evelynn_0.jpg",
                                           name: "Kayn",
                                           title: "the Shadow Reaper",
-                                          blurb: "A peerless practitioner of lethal shadow magic, Shieda Khis body and mind. There are only two possible outcomes: either Kayn bends the weapon to his will..ayn battles to achieve his true destinyâ€”to one day lead the Order of Shadow into a new era of Ionian supremacy. He wields the sentient darkin weapon Rhaast, undeterred by its creeping corruption of . or the malevolent blade consumes him completely, paving the way for the destruction of all Runeterra.",
+                                          lore: "A peerless practitioner of lethal shadow magic, Shieda Khis body and mind. There are only two possible outcomes: either Kayn bends the weapon to his will..ayn battles to achieve his true destinyâ€”to one day lead the Order of Shadow into a new era of Ionian supremacy. He wields the sentient darkin weapon Rhaast, undeterred by its creeping corruption of . or the malevolent blade consumes him completely, paving the way for the destruction of all Runeterra.",
                                           attack: 10,
                                           defense: 6,
                                           magic: 1,

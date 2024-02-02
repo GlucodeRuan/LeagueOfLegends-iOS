@@ -46,7 +46,6 @@ struct ItemDetailView: View {
                 }
                 .padding(.bottom)
                 
-                
                 Label(String(describing: viewModel.item.basePrice), systemImage: "g.circle.fill")
                     .foregroundColor(.yellow)
                     .padding(.bottom)
@@ -68,14 +67,13 @@ struct ItemDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(Array(viewModel.readableStats()), id: \.key) { key, value in
-                            Text("\(key): \(String(format: "%g", value))")
+                            Text("• \(key): \(String(format: "%g", value))")
                         }
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 }
                 .padding(.bottom)
-                
             }
             .padding()
         }
