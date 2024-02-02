@@ -118,7 +118,7 @@ struct ChampionDetailView: View {
     ChampionDetailView(champion: Champion(image: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Evelynn_0.jpg",
                                           name: "Kayn",
                                           title: "the Shadow Reaper",
-                                          lore: "A peerless practitioner of lethal shadow magic, Shieda Khis body and mind. There are only two possible outcomes: either Kayn bends the weapon to his will..ayn battles to achieve his true destinyâ€”to one day lead the Order of Shadow into a new era of Ionian supremacy. He wields the sentient darkin weapon Rhaast, undeterred by its creeping corruption of . or the malevolent blade consumes him completely, paving the way for the destruction of all Runeterra.",
+                                          blurb: "A peerless practitioner of lethal shadow magic, Shieda Khis body and mind. There are only two possible outcomes: either Kayn bends the weapon to his will..ayn battles to achieve his true destinyâ€”to one day lead the Order of Shadow into a new era of Ionian supremacy. He wields the sentient darkin weapon Rhaast, undeterred by its creeping corruption of . or the malevolent blade consumes him completely, paving the way for the destruction of all Runeterra.",
                                           attack: 10,
                                           defense: 6,
                                           magic: 1,
