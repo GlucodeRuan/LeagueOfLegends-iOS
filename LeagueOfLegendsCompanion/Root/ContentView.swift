@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var dataStore = DataStoreHandler()
-    @State var message: String?
+    @StateObject private var dataStore = DataStoreHandler()
+    @State private var message: String?
     var body: some View {
         TabView {
             CollectionView()
@@ -23,7 +23,7 @@ struct ContentView: View {
         }
         .tint(.primary)
         .onAppear {
-            dataStore.checkVersion { message in
+            dataStore.updateDataIfOutDated { message in
                 self.message = message
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.message = nil
@@ -31,7 +31,7 @@ struct ContentView: View {
             }
         }
         .refreshable {
-            dataStore.checkVersion() { message in
+            dataStore.updateDataIfOutDated() { message in
                 self.message = message
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.message = nil

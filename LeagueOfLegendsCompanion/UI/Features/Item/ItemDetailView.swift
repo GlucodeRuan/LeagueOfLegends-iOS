@@ -9,8 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct ItemDetailView: View {
-    @StateObject var viewModel: ItemDetailViewModel
-    @State var loading: Bool = true
+    @StateObject private var viewModel: ItemDetailViewModel
+    @State private var loading: Bool = true
 
     init(item: Item) {
         self._viewModel = StateObject(wrappedValue: ItemDetailViewModel(item: item))

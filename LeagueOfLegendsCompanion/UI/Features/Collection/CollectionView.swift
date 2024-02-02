@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CollectionView: View {
-    @StateObject var viewModel: CollectionViewModel = CollectionViewModel()
+    @StateObject private var viewModel: CollectionViewModel = CollectionViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack {

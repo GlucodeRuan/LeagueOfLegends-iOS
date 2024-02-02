@@ -17,16 +17,13 @@ enum AlertMessages: String {
 }
 
 final class DataStoreHandler: ObservableObject {
-    
-    //    @Published var alertMessage: String?
-    
     private let gateway: Gateway
     
     init() {
         self.gateway = Gateway()
     }
     
-    func checkVersion(completion: @escaping (String?) -> Void) {
+    func updateDataIfOutDated(completion: @escaping (String?) -> Void) {
         gateway.fetchVersions { versionData, networkError, dataError in
             if let versionData {
                 let usableVersions = versionData.versions.filter({ !$0.lowercased().contains("lolpatch_")})
