@@ -15,7 +15,7 @@ final class Gateway {
     private var tasks: [Task<Void, Never>] = []
 
     func fetchVersions(completion: @escaping (VersionData?, NetworkError?, DataError?) -> Void) {
-        let networkHandler: NetworkHandler = VersionNetworkHandler()
+        let networkHandler: APIFetchable = VersionAPIFetcher()
         let task = Task {
             do {
                 let version: String? = nil
@@ -31,7 +31,7 @@ final class Gateway {
     }
     
     func fetchChampions(for version: String, completion: @escaping (ChampionData?, NetworkError?, DataError?) -> Void) {
-        let networkHandler: NetworkHandler = ChampionNetworkHandler()
+        let networkHandler: APIFetchable = ChampionAPIFetcher()
         let task = Task {
             do {
                 let data = try await networkHandler.fetch(for: version, to: ChampionData.self) { error in
@@ -46,7 +46,7 @@ final class Gateway {
     }
     
     func fetchItems(for version: String, completion: @escaping (ItemData?, NetworkError?, DataError?) -> Void) {
-        let networkHandler: NetworkHandler = ItemNetworkHandler()
+        let networkHandler: APIFetchable = ItemAPIFetcher()
         let task = Task {
             do {
                 let data = try await networkHandler.fetch(for: version, to: ItemData.self) { error in

@@ -13,11 +13,11 @@ enum NetworkError: String, Error {
     case invalidData
 }
 
-protocol NetworkHandler {
+protocol APIFetchable {
     func fetch<T: Codable>(for version: String?, to modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T
 }
 
-#warning("Obsolete")
+#warning("Dated implementation")
 //class NetworkHandler: ObservableObject {
 //    func fetchLatestVersion(error: @escaping (NetworkError?) -> Void) async throws -> VersionData {
 //        let endpoint = "https://ddragon.leagueoflegends.com/api/versions.json"
