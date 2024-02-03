@@ -83,7 +83,7 @@ final class Gateway {
 //}
 //
 //class VersionGateway: Gateway, Gatewayable {
-//    func fetchData<T>(for version: String? = nil, mappedTo modelType: T.Type, completion: @escaping (T.Type?, NetworkError?, DataError?) -> Void) where T : Decodable, T : Encodable {
+//    func fetchData<T>(for version: String? = nil, mappedTo modelType: T.Type, completion: @escaping (T.Type?, NetworkError?, DataError?) -> Void) where T : Codable {
 //        let networkHandler: APIFetchable = VersionAPIFetcher()
 //        let task = Task {
 //            do {
@@ -101,7 +101,7 @@ final class Gateway {
 //}
 //
 //class ChampionGateway: Gateway, Gatewayable {
-//    func fetchData<T>(for version: String?, mappedTo modelType: T.Type, completion: @escaping (T.Type?, NetworkError?, DataError?) -> Void) where T : Decodable, T : Encodable {
+//    func fetchData<T>(for version: String?, mappedTo modelType: T.Type, completion: @escaping (T.Type?, NetworkError?, DataError?) -> Void) where T : Codable {
 //        let networkHandler: APIFetchable = ChampionAPIFetcher()
 //        let task = Task {
 //            do {
@@ -118,7 +118,7 @@ final class Gateway {
 //}
 //
 //class ItemGateway: Gateway, Gatewayable {
-//    func fetchData<T>(for version: String?, mappedTo modelType: T.Type, completion: @escaping (T.Type?, NetworkError?, DataError?) -> Void) where T : Decodable, T : Encodable {
+//    func fetchData<T>(for version: String?, mappedTo modelType: T.Type, completion: @escaping (T.Type?, NetworkError?, DataError?) -> Void) where T : Codable {
 //        let networkHandler: APIFetchable = ItemAPIFetcher()
 //        let task = Task {
 //            do {
