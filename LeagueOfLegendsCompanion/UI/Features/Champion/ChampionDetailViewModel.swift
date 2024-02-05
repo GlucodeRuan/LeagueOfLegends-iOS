@@ -24,11 +24,10 @@ class ChampionDetailViewModel: ObservableObject {
         return readableStats
     }
 
-    func fetchChampImage(for type: ChampionImageTypes) -> URL? {
+    func fetchChampImage(_ type: ChampionImageTypes, for skinNum: String = "0") -> URL? {
         let endpoint = "https://ddragon.leagueoflegends.com/cdn/img/champion/\(type)/"
-        let image = "\(champion.name)_0"
-        let format = ".jpg"
-        let result = endpoint + image + format
+        let image = champion.image.replacingOccurrences(of: ".png", with: "_\(skinNum).jpg")
+        let result = endpoint + image
         let url = URL(string: result)
         return url
     }

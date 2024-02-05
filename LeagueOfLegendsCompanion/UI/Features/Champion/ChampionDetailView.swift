@@ -26,7 +26,7 @@ struct ChampionDetailView: View {
                 }
                 .padding(.bottom)
 
-                KFImage(viewModel.fetchChampImage(for: .splash))
+                KFImage(viewModel.fetchChampImage(.splash))
                     .resizable()
                     .onProgress({ receivedSize, totalSize in
                         loading = true
