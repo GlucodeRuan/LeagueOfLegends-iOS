@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct CollectionView: View {
-    @StateObject private var viewModel: CollectionViewModel = CollectionViewModel()
-    
+    @StateObject private var viewModel: CollectionViewModel
+
+    init() {
+        self._viewModel = StateObject(wrappedValue: CollectionViewModel())
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -48,8 +52,6 @@ struct CollectionView: View {
     }
 }
 
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionView()
-    }
+#Preview {
+    CollectionView()
 }

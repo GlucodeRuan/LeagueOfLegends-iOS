@@ -80,3 +80,15 @@ struct ItemDetailView: View {
         .redacted(reason: loading ? .placeholder : [])
     }
 }
+
+#Preview {
+    ItemDetailView(item: Item(name: "Ruby Crystal",
+                              image: "1028.png",
+                              basePrice: 400,
+                              sellPrice: 280,
+                              itemDescription: "<mainText><stats><attention>150</attention> Health</stats><br><br></mainText>",
+                              colloq: ";red",
+                              plaintext: "Increases Health",
+                              stacks: nil,
+                              stats: ["FlatHPPoolMod": 150]))
+}

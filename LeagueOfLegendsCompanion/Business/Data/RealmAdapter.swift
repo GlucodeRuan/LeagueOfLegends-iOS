@@ -18,7 +18,6 @@ enum RealmAdapterError: String {
 protocol RealmAdaptable {
     func create()
     func read<KeyType>(key: KeyType) -> Self?
-//    func read() -> Results<Self>?
     func update(_ model: Object)
     func delete(_ model: Object)
     func deleteAll()
@@ -55,7 +54,6 @@ extension RealmAdaptable where Self: Object {
         do {
             let realm = try Realm()
             try realm.write {
-//                realm.add(model)
                 realm.add(model, update: .modified)
             }
         } catch {

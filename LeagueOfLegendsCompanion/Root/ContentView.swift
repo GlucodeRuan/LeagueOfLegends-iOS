@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var dataManager = DataManager()
+    @StateObject private var dataManager: DataManager
     @State private var message: String?
+
+    init() {
+        self._dataManager = StateObject(wrappedValue: DataManager())
+        self.message = nil
+    }
+
     var body: some View {
         TabView {
             CollectionView()
                 .tabItem {
                     Label("Collection", systemImage: "backpack")
                 }
-//            PracticeToolView()
-//                .tabItem {
-//                    Label("Practice Tool", systemImage: "scope")
-//                }
         }
         .tint(.primary)
         .onAppear {
@@ -57,8 +59,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
