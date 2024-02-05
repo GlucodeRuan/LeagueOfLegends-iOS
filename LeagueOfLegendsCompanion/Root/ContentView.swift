@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var dataStore = DataStoreHandler()
+    @StateObject private var dataManager = DataManager()
     @State private var message: String?
     var body: some View {
         TabView {
@@ -23,7 +23,7 @@ struct ContentView: View {
         }
         .tint(.primary)
         .onAppear {
-            dataStore.updateDataIfOutDated { message in
+            dataManager.updateDataIfOutDated { message in
                 self.message = message
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.message = nil
@@ -31,7 +31,7 @@ struct ContentView: View {
             }
         }
         .refreshable {
-            dataStore.updateDataIfOutDated() { message in
+            dataManager.updateDataIfOutDated() { message in
                 self.message = message
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.message = nil

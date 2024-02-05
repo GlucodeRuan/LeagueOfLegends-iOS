@@ -22,7 +22,7 @@ final class CollectionViewModel: ObservableObject {
     @Published var searchText: String = ""
     
     func searchedChampions() -> [Champion] {
-        var championList: [Champion] = champions.map({ Champion($0) })
+        let championList: [Champion] = champions.map({ Champion($0) })
         
         if searchText.isEmpty {
             return championList
@@ -32,7 +32,7 @@ final class CollectionViewModel: ObservableObject {
     }
     
     func searchedItems() -> [Item] {
-        var itemList: [Item] = items.map({ Item($0) })
+        let itemList: [Item] = items.map({ Item($0) })
         
         if searchText.isEmpty {
             return itemList
