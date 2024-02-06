@@ -8,7 +8,13 @@
 import Foundation
 
 class VersionAPIFetcher: APIFetchable {
-    func fetch<T>(for version: String?, to modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T where T : Decodable, T : Encodable {
+    var version: String?
+
+    init(version: String? = nil) {
+        self.version = version
+    }
+
+    func fetch<T>(for modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T where T : Decodable, T : Encodable {
         let endpoint = "https://ddragon.leagueoflegends.com/api/versions.json"
 
         guard let url = URL(string: endpoint) else {

@@ -14,7 +14,9 @@ enum NetworkError: String, Error {
 }
 
 protocol APIFetchable {
-    func fetch<T: Codable>(for version: String?, to modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T
+    var version: String? { get set }
+    
+    func fetch<T: Codable>(for modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T
 }
 
 #warning("Dated implementation")

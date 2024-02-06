@@ -8,7 +8,13 @@
 import Foundation
 
 class ChampionAPIFetcher: APIFetchable {
-    func fetch<T>(for version: String?, to modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T where T : Decodable, T : Encodable {
+    var version: String?
+
+    init(version: String? = nil) {
+        self.version = version
+    }
+
+    func fetch<T>(for modelType: T.Type, error: @escaping (NetworkError?) -> Void) async throws -> T where T : Decodable, T : Encodable {
         guard let version else {
             throw NetworkError.invalidURL
         }

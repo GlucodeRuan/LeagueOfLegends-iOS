@@ -38,7 +38,7 @@ class VersionGateway: Gateway {
         let task = Task {
             do {
                 let version: String? = nil
-                let data = try await networkHandler.fetch(for: version, to: modelType.self) { error in
+                let data = try await networkHandler.fetch(for: modelType.self) { error in
                     completion(nil, error, nil)
                 }
                 completion(data, nil, nil)
@@ -65,10 +65,10 @@ class ChampionGateway: Gateway {
     }
 
     func fetchData<T>(for modelType: T.Type, completion: @escaping (T?, NetworkError?, DataError?) -> Void) where T : Codable {
-        let networkHandler: APIFetchable = ChampionAPIFetcher()
+        let networkHandler: APIFetchable = ChampionAPIFetcher(version: version)
         let task = Task {
             do {
-                let data = try await networkHandler.fetch(for: version, to: modelType.self) { error in
+                let data = try await networkHandler.fetch(for: modelType.self) { error in
                     completion(nil, error, nil)
                 }
                 completion(data, nil, nil)
@@ -95,10 +95,10 @@ class ItemGateway: Gateway {
     }
 
     func fetchData<T>(for modelType: T.Type, completion: @escaping (T?, NetworkError?, DataError?) -> Void) where T : Codable {
-        let networkHandler: APIFetchable = ItemAPIFetcher()
+        let networkHandler: APIFetchable = ItemAPIFetcher(version: version)
         let task = Task {
             do {
-                let data = try await networkHandler.fetch(for: version, to: modelType.self) { error in
+                let data = try await networkHandler.fetch(for: modelType.self) { error in
                     completion(nil, error, nil)
                 }
                 completion(data, nil, nil)
