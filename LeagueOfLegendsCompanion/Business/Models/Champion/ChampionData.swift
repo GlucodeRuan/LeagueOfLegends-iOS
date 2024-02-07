@@ -76,6 +76,7 @@ enum Version: String, Codable {
     case the13221 = "13.22.1"
     case the13231 = "13.23.1"
     case the1421 = "14.2.1"
+    case the1431 = "14.3.1"
 }
 
 // MARK: - ImageTypes
