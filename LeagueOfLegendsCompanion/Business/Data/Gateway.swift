@@ -12,11 +12,7 @@ enum DataError: String {
 }
 
 protocol Gateway {
-    var version: String? { get set }
-    var tasks: [Task<Void, Never>] { get set }
-    func cancelTasks()
-
-    func fetchData<T: Codable>(for modelType: T.Type, completion: @escaping (T?, NetworkError?, DataError?) -> Void)
+    func fetchPersistedData(completion: @escaping (Bool) -> Void)
 }
 
 class VersionGateway: Gateway {
@@ -28,17 +24,34 @@ class VersionGateway: Gateway {
         self.tasks = []
     }
 
-    func cancelTasks() {
-        tasks.forEach({ $0.cancel() })
-        tasks = []
+    func fetchPersistedData(completion: @escaping (Bool) -> Void) {
+        if let persistedData = VersionModel().read(key: "singleton") {
+            completion(false)
+        } else {
+            fetchData { data, networkError, dataError in
+                guard let data else { return }
+                self.persist(with: data)
+                completion(true)
+            }
+        }
     }
 
-    func fetchData<T>(for modelType: T.Type, completion: @escaping (T?, NetworkError?, DataError?) -> Void) where T : Codable {
+    func fetchPersistedData(completion: @escaping (VersionModel?, NetworkError?, DataError?) -> Void) {
+        if let persistedData = VersionModel().read(key: "singleton") {
+            completion(persistedData, nil, nil)
+        } else {
+            fetchData { data, networkError, dataError in
+                guard let data else { return }
+                self.persist(with: data)
+            }
+        }
+    }
+
+    func fetchData(completion: @escaping (VersionData?, NetworkError?, DataError?) -> Void) {
         let networkHandler: APIFetchable = VersionAPIFetcher()
         let task = Task {
             do {
-                let version: String? = nil
-                let data = try await networkHandler.fetch(for: modelType.self) { error in
+                let data = try await networkHandler.fetch(for: VersionData.self) { error in
                     completion(nil, error, nil)
                 }
                 completion(data, nil, nil)
@@ -47,10 +60,24 @@ class VersionGateway: Gateway {
             }
         }
         tasks.append(task)
+    }
+
+    func persist(with data: VersionData) {
+        let model = VersionModel(data.versions)
+        VersionModel().update(model)
+    }
+
+    func cancelTasks() {
+        tasks.forEach({ $0.cancel() })
+        tasks = []
     }
 }
 
 class ChampionGateway: Gateway {
+    typealias Entity = Champion
+    typealias EntityModel = ChampionModel
+    typealias EntityData = ChampionData
+
     var version: String?
     var tasks: [Task<Void, Never>] = []
 
@@ -59,16 +86,11 @@ class ChampionGateway: Gateway {
         self.tasks = []
     }
 
-    func cancelTasks() {
-        tasks.forEach({ $0.cancel() })
-        tasks = []
-    }
-
-    func fetchData<T>(for modelType: T.Type, completion: @escaping (T?, NetworkError?, DataError?) -> Void) where T : Codable {
+    func fetchData(completion: @escaping (ChampionData?, NetworkError?, DataError?) -> Void) {
         let networkHandler: APIFetchable = ChampionAPIFetcher(version: version)
         let task = Task {
             do {
-                let data = try await networkHandler.fetch(for: modelType.self) { error in
+                let data = try await networkHandler.fetch(for: ChampionData.self) { error in
                     completion(nil, error, nil)
                 }
                 completion(data, nil, nil)
@@ -77,10 +99,47 @@ class ChampionGateway: Gateway {
             }
         }
         tasks.append(task)
+    }
+
+    func fetchPersistedData(completion: @escaping (Bool) -> Void) {
+        if let persistedData = ChampionModel().read() {
+            completion(false)
+        } else {
+            fetchData { data, networkError, dataError in
+                guard let data else { return }
+                self.persist(with: data)
+                completion(true)
+            }
+        }
+    }
+
+//    func fetchPersistedData(completion: @escaping (ChampionModel?, NetworkError?, DataError?) -> Void) {
+//        if let persistedData = ChampionModel().read() {
+//            completion(nil, nil, nil)
+//        } else {
+//            fetchData { data, networkError, dataError in
+//                guard let data else { return }
+//                self.persist(with: data)
+//            }
+//        }
+//    }
+
+    func persist(with data: ChampionData) {
+        let model = ChampionModel(value: data)
+        VersionModel().update(model)
+    }
+
+    func cancelTasks() {
+        tasks.forEach({ $0.cancel() })
+        tasks = []
     }
 }
 
 class ItemGateway: Gateway {
+    typealias Entity = Item
+    typealias EntityModel = ItemModel
+    typealias EntityData = ItemData
+
     var version: String?
     var tasks: [Task<Void, Never>] = []
 
@@ -89,16 +148,11 @@ class ItemGateway: Gateway {
         self.tasks = []
     }
 
-    func cancelTasks() {
-        tasks.forEach({ $0.cancel() })
-        tasks = []
-    }
-
-    func fetchData<T>(for modelType: T.Type, completion: @escaping (T?, NetworkError?, DataError?) -> Void) where T : Codable {
+    func fetchData(completion: @escaping (ItemData?, NetworkError?, DataError?) -> Void) {
         let networkHandler: APIFetchable = ItemAPIFetcher(version: version)
         let task = Task {
             do {
-                let data = try await networkHandler.fetch(for: modelType.self) { error in
+                let data = try await networkHandler.fetch(for: ItemData.self) { error in
                     completion(nil, error, nil)
                 }
                 completion(data, nil, nil)
@@ -107,6 +161,39 @@ class ItemGateway: Gateway {
             }
         }
         tasks.append(task)
+    }
+
+    func fetchPersistedData(completion: @escaping (Bool) -> Void) {
+        if let persistedData = ItemModel().read() {
+            completion(false)
+        } else {
+            fetchData { data, networkError, dataError in
+                guard let data else { return }
+                self.persist(with: data)
+                completion(true)
+            }
+        }
+    }
+
+//    func fetchPersistedData(completion: @escaping (ItemModel?, NetworkError?, DataError?) -> Void) {
+//        if let persistedData = ItemModel().read() {
+//            completion(nil, nil, nil)
+//        } else {
+//            fetchData { data, networkError, dataError in
+//                guard let data else { return }
+//                self.persist(with: data)
+//            }
+//        }
+//    }
+
+    func persist(with data: ItemData) {
+        let model = ItemModel(value: data)
+        VersionModel().update(model)
+    }
+
+    func cancelTasks() {
+        tasks.forEach({ $0.cancel() })
+        tasks = []
     }
 }
 

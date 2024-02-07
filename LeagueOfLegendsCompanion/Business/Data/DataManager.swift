@@ -18,11 +18,21 @@ enum AlertMessages: String {
 
 final class DataManager: ObservableObject {
     func updateDataIfOutDated(completion: @escaping (String?) -> Void) {
-        let gateway: Gateway = VersionGateway()
+        let versionGateway: any Gateway = VersionGateway()
 
-        gateway.fetchData(for: VersionData.self) { data, networkError, dataError in
+        versionGateway.fetchPersistedData { shouldUpdateData in
+            if shouldUpdateData {
+                let championGateway: any Gateway = ChampionGateway()
+                championGateway.
+
+                let itemGateway: any Gateway = ItemGateway()
+
+            }
+        }
+
+        gateway.fetchData { data, networkError, dataError in
             if let data {
-                let usableVersions = data.versions.filter({ !$0.lowercased().contains("lolpatch_")})
+                let usableVersions = (data as AnyObject).versions.filter({ !$0.lowercased().contains("lolpatch_")})
                 let latestVersion = usableVersions.first!
                 if let persistedVersion = VersionModel().read(key: "singleton") {
                     if latestVersion != persistedVersion.latestVersion {
